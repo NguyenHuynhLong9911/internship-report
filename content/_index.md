@@ -8,14 +8,10 @@ chapter: false
     
 # Internship Report
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
 ### Student Information:
 &emsp; **Full Name:** Nguyen Huynh Long
 
-&emsp; **Phone Number:** 0989888999 
+&emsp; **Phone Number:** 0915924970 
 
 &emsp; **Email:** longnguyensweet@gmail.com
 
@@ -23,15 +19,15 @@ chapter: false
 
 &emsp; **Major:** Information Technology
 
-&emsp; **Class:** AWS082025
+&emsp; **Class:** AWS042026
 
 &emsp; **Internship Company:** Amazon Web Services Vietnam Co., Ltd.
 
 &emsp; **Internship Position:** FCJ Cloud Intern
 
-&emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
+&emsp; **Internship Duration:** From 17/04/2026 to 17/7/2026
 
-![Your profile picture](/images/avatar.png)
+![Your profile picture](/images/avatar.jpg)
 
 ### Report Content
 
