@@ -25,9 +25,9 @@ chapter: false
 
 &emsp; **Internship Position:** FCJ Cloud Intern
 
-&emsp; **Internship Duration:** From 17/04/2026 to 17/7/2026
+&emsp; **Internship Duration:** From 17/04/2026 to 17/07/2026
 
-![Your profile picture](/images/avatar.jpg)
+![Your profile picture](/internship-report/images/avatar.jpg)
 
 ### Report Content
 
