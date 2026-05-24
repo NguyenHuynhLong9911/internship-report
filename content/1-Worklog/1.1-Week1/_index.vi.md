@@ -5,55 +5,30 @@ weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu tuần 1
 
-### Mục tiêu tuần 1:
+* Tạo và bảo mật tài khoản AWS.
+* Tìm hiểu cách thiết lập MFA cho tài khoản AWS root.
+* Hiểu về tài khoản quản trị, nhóm quản trị và hỗ trợ xác thực tài khoản.
+* Bắt đầu sử dụng AWS Budgets để theo dõi chi phí, mức sử dụng, reservation và Savings Plans.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Các công việc cần triển khai trong tuần này
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 1 | **000001 - Tạo tài khoản AWS** <br> - Tạo tài khoản AWS <br> - Thiết lập MFA cho tài khoản AWS root <br> - Tìm hiểu tài khoản và nhóm Admin <br> - Tìm hiểu hỗ trợ xác thực tài khoản | 11/05/2026 | 13/05/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| 2 | **000007 - Bắt đầu với AWS Budgets** <br> - Tạo cost budget <br> - Tạo Usage Budget <br> - Tạo Reservation Budget <br> - Tạo Saving plans Budget | 14/05/2026 | 17/05/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
 
+### Kết quả đạt được tuần 1
 
-### Kết quả đạt được tuần 1:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Tạo tài khoản AWS và nắm được các bước chính trong quá trình thiết lập tài khoản.
+* Thiết lập MFA cho tài khoản AWS root để tăng tính bảo mật.
+* Hiểu cách tổ chức quyền quản trị thông qua tài khoản Admin và nhóm Admin.
+* Tìm hiểu hỗ trợ xác thực tài khoản để biết cách AWS xác minh và hỗ trợ tài khoản mới.
+* Thực hành sử dụng AWS Budgets để tạo:
+  * Cost budget
+  * Usage Budget
+  * Reservation Budget
+  * Saving plans Budget
+* Xây dựng nền tảng tốt hơn về bảo mật tài khoản và quản lý chi phí trước khi chuyển sang các dịch vụ mạng và compute.
