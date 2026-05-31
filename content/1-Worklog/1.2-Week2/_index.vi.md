@@ -17,8 +17,8 @@ pre: " <b> 1.2. </b> "
 
 | Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --------- | ------------ | --------------- | -------------- |
-| 1 | **000003 - Khởi tạo VPC** <br> - Giới thiệu Amazon VPC <br> - Tường lửa trong VPC <br> - Thực hành tạo 1 VPC <br> - Cấu hình Site-to-Site VPN | 18/06/2026 | 21/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
-| 2 | **000058 - System Manager - Session Manager** <br> - Các bước chuẩn bị <br> - Tạo kết nối đến máy chủ EC2 <br> - Quản lý session logs <br> - Port Forwarding | 22/06/2026 | 24/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| 1 | **000003 - Khởi tạo VPC** <br> - Giới thiệu Amazon VPC <br> - Tường lửa trong VPC <br> - Thực hành tạo 1 VPC <br> - Cấu hình Site-to-Site VPN | 18/05/2026 | 21/05/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| 2 | **000058 - System Manager - Session Manager** <br> - Các bước chuẩn bị <br> - Tạo kết nối đến máy chủ EC2 <br> - Quản lý session logs <br> - Port Forwarding | 22/05/2026 | 24/05/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
 
 ### Kết quả đạt được tuần 2
 

@@ -17,8 +17,8 @@ pre: " <b> 1.2. </b> "
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | ---- | ---------- | --------------- | ------------------ |
-| 1 | **000003 - Create a VPC** <br> - Introduction to Amazon VPC <br> - Firewalls in VPC <br> - Practice creating one VPC <br> - Configure Site-to-Site VPN | 18/06/2026 | 21/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
-| 2 | **000058 - Systems Manager - Session Manager** <br> - Preparation steps <br> - Create a connection to an EC2 server <br> - Manage session logs <br> - Port forwarding | 22/06/2026 | 24/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| 1 | **000003 - Create a VPC** <br> - Introduction to Amazon VPC <br> - Firewalls in VPC <br> - Practice creating one VPC <br> - Configure Site-to-Site VPN | 18/05/2026 | 21/05/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| 2 | **000058 - Systems Manager - Session Manager** <br> - Preparation steps <br> - Create a connection to an EC2 server <br> - Manage session logs <br> - Port forwarding | 22/05/2026 | 24/05/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
 
 ### Week 2 Achievements
 
