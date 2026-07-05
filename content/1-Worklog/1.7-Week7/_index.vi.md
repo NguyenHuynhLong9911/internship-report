@@ -5,55 +5,30 @@ weight: 1
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu tuần 7
 
-### Mục tiêu tuần 7:
+* Xây dựng ý tưởng dự án **SmartStudy AI - trợ lý học tập thông minh trên AWS**.
+* Xác định người dùng chính, vấn đề cần giải quyết và các tính năng học tập quan trọng.
+* Phác thảo template kiến trúc AWS cho nền tảng học tập sử dụng Generative AI và RAG.
+* Chuẩn bị phạm vi dự án ban đầu trước khi triển khai.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mô tả dự án
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+SmartStudy AI là một nền tảng học tập thông minh hỗ trợ sinh viên học tập hiệu quả hơn thông qua công nghệ Generative AI và Retrieval-Augmented Generation (RAG). Người dùng có thể tải lên tài liệu học tập, tương tác với chatbot AI, tạo đề thi tự động và nhận đánh giá kết quả học tập ngay trên nền tảng web.
 
+### Các công việc cần triển khai trong tuần này
 
-### Kết quả đạt được tuần 7:
+| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 1 | **Lên ý tưởng dự án** <br> - Xác định người dùng mục tiêu và vấn đề học tập cần giải quyết <br> - Xác định các tính năng chính: upload tài liệu, chatbot AI, tạo đề thi, đánh giá kết quả <br> - Phác thảo user flow cho nền tảng web | 22/06/2026 | 24/06/2026 | Project planning |
+| 2 | **Template kiến trúc AWS** <br> - Vẽ bản nháp kiến trúc AWS ban đầu <br> - Xác định các thành phần frontend, backend, storage, authentication và AI/RAG <br> - Cân nhắc các dịch vụ như Amazon S3, Amazon CloudFront, Amazon API Gateway, AWS Lambda, Amazon Bedrock và vector storage | 25/06/2026 | 26/06/2026 | AWS architecture design |
+| 3 | **Chuẩn bị scope và task** <br> - Chia các module chính của dự án <br> - Chuẩn bị task breakdown ban đầu cho frontend, backend và AWS architecture <br> - Rà soát rủi ro kỹ thuật và thứ tự ưu tiên triển khai | 27/06/2026 | 28/06/2026 | Project backlog |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kết quả đạt được tuần 7
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hoàn thiện ý tưởng ban đầu cho SmartStudy AI.
+* Xác định các tính năng chính cần có cho nền tảng trợ lý học tập.
+* Tạo template kiến trúc AWS đầu tiên cho workflow GenAI và RAG.
+* Xác định các thành phần chính của hệ thống gồm frontend, backend, storage, authentication và AI services.
+* Chuẩn bị định hướng rõ hơn để triển khai trong tuần 8.

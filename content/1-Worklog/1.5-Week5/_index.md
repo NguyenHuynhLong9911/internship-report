@@ -5,53 +5,27 @@ weight: 1
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 5 Objectives
 
-### Week 5 Objectives:
+* Learn the main storage services in AWS.
+* Understand common use cases for Amazon S3, EBS, EFS, FSx, and Storage Gateway.
+* Practice basic storage configuration and data management tasks.
+* Compare object, block, file, and hybrid storage models.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks to be carried out this week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 1 | **Session 4 - AWS Storage Services** <br> - Review Amazon S3 concepts <br> - Create and configure an S3 bucket <br> - Upload, organize, and manage objects <br> - Review versioning, lifecycle rules, and access options | 08/06/2026 | 10/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| 2 | **Block and File Storage** <br> - Learn Amazon EBS use cases <br> - Review snapshot concepts <br> - Learn Amazon EFS shared file storage <br> - Compare EBS and EFS for application workloads | 11/06/2026 | 12/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| 3 | **Advanced and Hybrid Storage** <br> - Learn Amazon FSx use cases <br> - Review AWS Storage Gateway <br> - Understand hybrid storage scenarios <br> - Summarize storage service selection criteria | 13/06/2026 | 14/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
 
+### Week 5 Achievements
 
-### Week 5 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Understood the differences between object, block, file, and hybrid storage in AWS.
+* Practiced basic Amazon S3 operations and reviewed key bucket configuration options.
+* Learned when to use Amazon EBS for EC2-backed workloads.
+* Understood how Amazon EFS supports shared file access across multiple compute resources.
+* Reviewed Amazon FSx and AWS Storage Gateway for specialized and hybrid storage needs.
+* Built a clearer decision framework for choosing the right AWS storage service.

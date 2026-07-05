@@ -5,55 +5,30 @@ weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu tuần 8
 
-### Mục tiêu tuần 8:
+* Bắt đầu triển khai dự án SmartStudy AI.
+* Phân chia công việc thành các phần AWS architecture, backend và frontend.
+* Hoàn thiện kiến trúc AWS chính cho workflow GenAI và RAG.
+* Xây dựng nền tảng backend và frontend ban đầu cho nền tảng web.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mô tả dự án
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+SmartStudy AI là nền tảng trợ lý học tập thông minh trên AWS. Hệ thống cho phép sinh viên tải lên tài liệu học tập, đặt câu hỏi với chatbot AI, tạo đề thi tự động và nhận phản hồi về kết quả học tập.
 
+### Các công việc cần triển khai trong tuần này
 
-### Kết quả đạt được tuần 8:
+| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 1 | **Hoàn thiện AWS architecture** <br> - Chỉnh sửa architecture diagram <br> - Xác định luồng upload tài liệu và luồng RAG <br> - Map các AWS services với từng thành phần <br> - Rà soát bảo mật, khả năng mở rộng và chi phí | 29/06/2026 | 01/07/2026 | AWS architecture design |
+| 2 | **Triển khai backend** <br> - Thiết kế API endpoints cho upload tài liệu, chatbot, tạo đề thi và đánh giá kết quả <br> - Chuẩn bị luồng xử lý dữ liệu cho tài liệu được upload <br> - Xác định các điểm tích hợp với AI/RAG services | 02/07/2026 | 03/07/2026 | Backend tasks |
+| 3 | **Triển khai frontend** <br> - Xây dựng các màn hình ban đầu cho upload, chat, quiz và xem kết quả <br> - Kết nối thiết kế frontend với backend API <br> - Rà soát trải nghiệm người dùng và chuẩn bị integration testing | 04/07/2026 | 05/07/2026 | Frontend tasks |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kết quả đạt được tuần 8
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Phân chia dự án SmartStudy AI thành các luồng công việc AWS architecture, backend và frontend.
+* Hoàn thiện kiến trúc AWS rõ ràng hơn cho nền tảng.
+* Xác định luồng API backend chính cho upload, chatbot, tạo đề thi và đánh giá kết quả.
+* Xây dựng cấu trúc frontend ban đầu cho các workflow chính của người dùng.
+* Chuẩn bị dự án cho bước tích hợp giữa web interface, backend services và AI/RAG components.

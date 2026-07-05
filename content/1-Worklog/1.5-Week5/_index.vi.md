@@ -5,55 +5,27 @@ weight: 1
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu tuần 5
 
-### Mục tiêu tuần 5:
+* Tìm hiểu các dịch vụ lưu trữ chính trong AWS.
+* Hiểu các trường hợp sử dụng phổ biến của Amazon S3, EBS, EFS, FSx và Storage Gateway.
+* Thực hành các cấu hình lưu trữ và thao tác quản lý dữ liệu cơ bản.
+* So sánh các mô hình object storage, block storage, file storage và hybrid storage.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Các công việc cần triển khai trong tuần này
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 1 | **Buổi 4 - Dịch vụ lưu trữ trong AWS** <br> - Ôn tập khái niệm Amazon S3 <br> - Tạo và cấu hình S3 bucket <br> - Upload, sắp xếp và quản lý object <br> - Tìm hiểu versioning, lifecycle rules và các tùy chọn truy cập | 08/06/2026 | 10/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| 2 | **Block Storage và File Storage** <br> - Tìm hiểu trường hợp sử dụng Amazon EBS <br> - Ôn tập khái niệm snapshot <br> - Tìm hiểu Amazon EFS cho shared file storage <br> - So sánh EBS và EFS cho workload ứng dụng | 11/06/2026 | 12/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| 3 | **Advanced Storage và Hybrid Storage** <br> - Tìm hiểu trường hợp sử dụng Amazon FSx <br> - Ôn tập AWS Storage Gateway <br> - Hiểu các tình huống hybrid storage <br> - Tổng kết tiêu chí lựa chọn dịch vụ lưu trữ | 13/06/2026 | 14/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
 
+### Kết quả đạt được tuần 5
 
-### Kết quả đạt được tuần 5:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hiểu sự khác nhau giữa object storage, block storage, file storage và hybrid storage trong AWS.
+* Thực hành các thao tác cơ bản với Amazon S3 và nắm được các cấu hình quan trọng của bucket.
+* Biết khi nào nên sử dụng Amazon EBS cho workload chạy trên EC2.
+* Hiểu cách Amazon EFS hỗ trợ truy cập file dùng chung giữa nhiều tài nguyên compute.
+* Tìm hiểu Amazon FSx và AWS Storage Gateway cho các nhu cầu lưu trữ chuyên biệt và hybrid.
+* Xây dựng được khung tư duy rõ hơn để lựa chọn dịch vụ lưu trữ AWS phù hợp.
