@@ -1,57 +1,32 @@
 ---
 title: "Week 10 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-07-13
+weight: 1
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 10 Objectives
 
-### Week 10 Objectives:
+* Deploy the SmartStudy production environment.
+* Complete the end-to-end document, AI study, quiz, and result workflows.
+* Add monitoring, resolve integration issues, and prepare the final demonstration.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks Carried Out This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| No. | Task | Start Date | Completion Date | Output |
+| --- | ---- | ---------- | --------------- | ------ |
+| 1 | **Production infrastructure** <br> - Deploy production Cognito, API Gateway, Lambda, S3, SQS, dead-letter queue, and DynamoDB resources with AWS CDK <br> - Keep staging and production resources separated <br> - Validate IAM permissions between services | 13/07/2026 | 14/07/2026 | Production AWS environment |
+| 2 | **Frontend delivery and security** <br> - Connect the GitHub `main` branch to AWS Amplify <br> - Deploy the production frontend on the default `amplifyapp.com` domain <br> - Enable AWS WAF protection for Amplify Hosting <br> - Verify Cognito registration and sign-in | 14/07/2026 | 15/07/2026 | Production web application |
+| 3 | **Feature integration** <br> - Complete document upload and asynchronous processing <br> - Integrate the study room with the Ollama model running on the self-hosted local AI server <br> - Complete conversation history, quiz generation, answer submission, scoring, and result explanations <br> - Test error handling through the SQS dead-letter queue | 15/07/2026 | 17/07/2026 | End-to-end SmartStudy workflows |
+| 4 | **Monitoring and final validation** <br> - Review Lambda and SQS logs and metrics in Amazon CloudWatch <br> - Configure alarms for key Lambda and queue conditions <br> - Fix integration and user-interface issues <br> - Run the final end-to-end test and record the completed project demonstration | 18/07/2026 | 19/07/2026 | Monitored system and final demo video |
 
+### Week 10 Achievements
 
-### Week 10 Achievements:
+* Deployed separate staging and production environments in `us-east-1`.
+* Automated frontend delivery from GitHub to AWS Amplify and published SmartStudy on the default Amplify domain.
+* Completed authentication, document management, AI-assisted study, quiz generation, scoring, and result-review workflows.
+* Integrated the Ollama model hosted on a self-hosted local AI server as the project's AI service.
+* Added CloudWatch monitoring and completed the final project demonstration on July 19, 2026.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+The production environment was kept online through July 30, 2026 for evaluation and demonstration; no cleanup activity was included in this worklog.

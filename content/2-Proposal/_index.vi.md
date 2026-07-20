@@ -1,108 +1,121 @@
 ---
 title: "Bản đề xuất"
-date: 2024-01-01
+date: 2026-06-22
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
+# SmartStudy AI
+## Trợ lý học tập serverless dựa trên tài liệu
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+### 1. Tóm tắt điều hành
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+SmartStudy AI là nền tảng học tập trên web giúp sinh viên học từ chính tài liệu PDF của mình. Người dùng có thể tạo tài khoản, tải lên và quản lý tài liệu, đặt câu hỏi dựa trên nội dung tài liệu, tạo bài luyện tập, nộp đáp án và xem điểm cùng lời giải thích.
 
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+Ứng dụng sử dụng kiến trúc serverless trên AWS cho việc lưu trữ web, xác thực, API, lưu trữ tài liệu, xử lý bất đồng bộ, dữ liệu ứng dụng và giám sát. Do tài khoản dự án không thể sử dụng Amazon Bedrock, tác vụ AI được chuyển sang model Qwen 2.5 7B chạy bằng Ollama trên máy chủ AI local tự quản lý. Repository của dự án có thành phần Cloudflare relay để hỗ trợ kết nối tới dịch vụ AI local; chi tiết triển khai sẽ được xác minh khi hoàn thiện tài liệu kỹ thuật.
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+### 2. Vấn đề cần giải quyết
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+Sinh viên thường phải học từ nhiều tài liệu dài và rời rạc. Việc đọc, tóm tắt, tự tạo câu hỏi ôn tập và theo dõi kết quả theo cách thủ công tốn nhiều thời gian. Chatbot thông thường cũng có thể trả lời ngoài nội dung tài liệu, khiến người học khó kiểm chứng câu trả lời có thực sự dựa trên nguồn đã cung cấp hay không.
 
-### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+SmartStudy giải quyết các vấn đề trên bằng một không gian học tập thống nhất cho phép:
 
-![IoT Weather Station Architecture](/internship-report/images/2-Proposal/edge_architecture.jpeg)
+* Tải lên và tổ chức tài liệu PDF.
+* Đặt câu hỏi dựa trên tài liệu đã tải lên.
+* Nhận câu trả lời kèm tham chiếu tới nội dung liên quan.
+* Tự động tạo bài luyện tập.
+* Lưu hội thoại, lượt làm bài, điểm số và lời giải thích.
 
-![IoT Weather Platform Architecture](/internship-report/images/2-Proposal/platform_architecture.jpeg)
+### 3. Giải pháp đề xuất
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+SmartStudy cung cấp các luồng chính sau:
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+1. Người dùng đăng ký hoặc đăng nhập thông qua Amazon Cognito.
+2. Ứng dụng web gửi yêu cầu backend qua Amazon API Gateway.
+3. Tài liệu được lưu trên Amazon S3 và đưa vào Amazon SQS để xử lý bất đồng bộ.
+4. AWS Lambda xử lý tài liệu và lưu metadata, chunk, hội thoại, quiz cùng lượt làm bài trong Amazon DynamoDB.
+5. Yêu cầu AI được chuyển đến model Ollama local thông qua cơ chế relay của dự án.
+6. Amazon CloudWatch thu thập log, metric và alarm vận hành.
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+### 4. Kiến trúc giải pháp sơ bộ
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+#### Kiến trúc đề xuất ban đầu
 
-### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+Sơ đồ dưới đây ghi lại kiến trúc được đề xuất trước khi triển khai. Sơ đồ được giữ lại để thể hiện định hướng thiết kế ban đầu; một số dịch vụ trong sơ đồ sau đó đã bị loại bỏ hoặc thay thế do giới hạn dịch vụ và yêu cầu vận hành thực tế.
 
-### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
+![Kiến trúc đề xuất ban đầu của SmartStudy AI](/internship-report/images/2-Proposal/initial-proposed-architecture.jpg)
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
+*Hình 1: Kiến trúc đề xuất ban đầu trước khi có các thay đổi trong quá trình triển khai. Sơ đồ này không đại diện cho hệ thống được triển khai cuối cùng.*
 
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
+#### Kiến trúc sau điều chỉnh
 
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
+![Kiến trúc triển khai cuối cùng của SmartStudy AI](/internship-report/images/2-Proposal/final-deployed-architecture.png)
 
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
+*Hình 2: Kiến trúc triển khai cuối cùng, gồm workload serverless trên AWS và môi trường AI Ollama tự quản lý.*
 
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
+Dự án duy trì tài nguyên staging và production riêng biệt tại region `us-east-1`. Branch staging trên GitHub được dùng cho quá trình tích hợp; các thay đổi đã được kiểm tra được merge vào branch main và triển khai production thông qua AWS Amplify.
 
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+### 5. Dịch vụ và công nghệ sử dụng
+
+#### Dịch vụ AWS
+
+* **AWS Amplify Hosting:** Build và triển khai frontend từ GitHub.
+* **Amazon Cognito:** Quản lý đăng ký, đăng nhập và token người dùng.
+* **Amazon API Gateway:** Cung cấp HTTP API cho backend.
+* **AWS Lambda:** Xử lý API, tiếp nhận tài liệu và logic pre-sign-up.
+* **Amazon S3:** Lưu tài liệu PDF và asset của AWS CDK.
+* **Amazon SQS:** Tách luồng upload khỏi quá trình xử lý tài liệu bất đồng bộ.
+* **Amazon DynamoDB:** Lưu tài liệu, document chunk, hội thoại, tin nhắn, quiz, bài thi, lượt làm bài, bản tóm tắt và trạng thái AI job.
+* **Amazon CloudWatch:** Cung cấp log, metric và alarm cho Lambda và SQS.
+* **AWS IAM:** Phân quyền giữa người dùng và các dịch vụ AWS.
+* **AWS CDK và AWS CloudFormation:** Khai báo và triển khai lặp lại hạ tầng staging, production.
+
+#### Công nghệ hỗ trợ
+
+* **GitHub:** Quản lý source code, phối hợp qua branch và cung cấp nguồn cho continuous deployment của Amplify.
+* **Ollama:** Cung cấp model ngôn ngữ từ máy chủ AI local tự quản lý.
+* **Qwen 2.5 7B:** Model ngôn ngữ local được sử dụng trong luồng AI.
+* **Cloudflare relay:** Cung cấp lớp relay liên quan đến việc truy cập dịch vụ AI local. Cơ chế relay cụ thể cần được xác minh thêm từ cấu hình triển khai.
+
+### 6. Thay đổi kiến trúc và các giới hạn
+
+| Đề xuất ban đầu | Phương án triển khai | Lý do |
+| --- | --- | --- |
+| Custom domain bằng Route 53 | Domain mặc định `amplifyapp.com` | Nhóm không thể hoàn tất việc mua domain. |
+| Amazon Bedrock | Ollama với Qwen 2.5 7B trên máy chủ AI local tự quản lý | Tài khoản dự án không được phép thực hiện operation cần thiết trên Bedrock. |
+| AWS Secrets Manager | Cấu hình biến môi trường khi triển khai | Secrets Manager không được sử dụng trong bản triển khai cuối. |
+| AWS CloudTrail | Giám sát bằng Amazon CloudWatch | CloudTrail không nằm trong phạm vi đã triển khai. |
+| Xử lý tài liệu trực tiếp/đồng bộ | Processing queue trên Amazon SQS | Xử lý bất đồng bộ giúp tách tác vụ dài khỏi API phục vụ người dùng. |
+| Một môi trường duy nhất | Tách staging và production | Giảm rủi ro khi kiểm thử thay đổi với dữ liệu và dịch vụ production. |
+
+### 7. Kế hoạch triển khai
+
+* **Lập kế hoạch:** Xác định vấn đề, tính năng, user flow và kiến trúc AWS ban đầu.
+* **Điều chỉnh kiến trúc:** Kiểm tra khả năng sử dụng dịch vụ và thay thế các thành phần không khả dụng.
+* **Phát triển ứng dụng:** Xây dựng frontend, backend API, xử lý tài liệu, phòng học AI và bài luyện tập.
+* **Triển khai hạ tầng:** Khởi tạo tài nguyên staging và production bằng AWS CDK, CloudFormation.
+* **Tích hợp:** Kết nối GitHub với Amplify và tích hợp Cognito, API Gateway, Lambda, S3, SQS, DynamoDB cùng dịch vụ AI local.
+* **Kiểm thử:** Kiểm tra đăng ký, upload, xử lý tài liệu, hỏi đáp, tạo quiz, chấm điểm và xem kết quả.
+
+### 8. Rủi ro và phương án giảm thiểu
+
+| Rủi ro | Ảnh hưởng | Phương án giảm thiểu |
+| --- | --- | --- |
+| Máy chủ AI local hoặc dịch vụ Ollama không khả dụng | Chức năng học với AI và tạo quiz có thể gián đoạn | Duy trì máy chủ khi demo, theo dõi kết nối và xây dựng định hướng chuyển sang dịch vụ AI managed. |
+| Relay hoặc kết nối Internet không ổn định | Yêu cầu AI chậm hoặc thất bại | Thiết lập timeout, xử lý lỗi và phản hồi retry rõ ràng. |
+| Xử lý tài liệu thất bại | Tài liệu không sẵn sàng để học | Sử dụng SQS, trạng thái xử lý, cơ chế xử lý lỗi của ứng dụng và giám sát CloudWatch. |
+| Thay đổi staging ảnh hưởng production | Gián đoạn dịch vụ hoặc sai lệch dữ liệu | Tách tài nguyên staging, production và triển khai qua quy trình merge trên GitHub. |
+| Mức sử dụng AWS vượt dự kiến | Phát sinh chi phí ngoài kế hoạch | Theo dõi mức sử dụng và chỉ duy trì tài nguyên cần thiết cho đánh giá. |
+
+### 9. Kết quả kỳ vọng
+
+* Ứng dụng SmartStudy được triển khai và truy cập qua AWS Amplify.
+* Đăng ký và đăng nhập an toàn bằng Amazon Cognito.
+* Upload PDF và xử lý tài liệu bất đồng bộ ổn định.
+* Hỏi đáp AI dựa trên tài liệu và tự động tạo bài luyện tập.
+* Lưu lịch sử học tập và hỗ trợ xem lại kết quả.
+* Hạ tầng AWS staging, production có thể triển khai lặp lại.
+* Tạo nền tảng để thay Ollama local bằng dịch vụ AI managed trong phiên bản tương lai.
+
+Bản đề xuất này được xây dựng từ tài nguyên AWS đã triển khai, video demo hoàn chỉnh và tổng quan repository GitHub hiện có. Chi tiết kết nối Cloudflare với Ollama sẽ được hoàn thiện sau khi xác minh cấu hình vận hành của máy chủ AI local.

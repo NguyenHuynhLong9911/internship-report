@@ -1,6 +1,6 @@
 ---
 title: "Worklog Tuần 8"
-date: 2024-01-01
+date: 2026-06-29
 weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "
@@ -8,27 +8,25 @@ pre: " <b> 1.8. </b> "
 
 ### Mục tiêu tuần 8
 
-* Bắt đầu triển khai dự án SmartStudy AI.
-* Phân chia công việc thành các phần AWS architecture, backend và frontend.
-* Hoàn thiện kiến trúc AWS chính cho workflow GenAI và RAG.
-* Xây dựng nền tảng backend và frontend ban đầu cho nền tảng web.
+* Điều chỉnh kiến trúc ban đầu theo khả năng kỹ thuật, chi phí và giới hạn thực tế của dự án.
+* Xác lập các luồng chính cho frontend, backend, xác thực, lưu trữ, xử lý bất đồng bộ và AI.
+* Bắt đầu phát triển giao diện và API backend của SmartStudy.
 
-### Mô tả dự án
+### Quyết định điều chỉnh kiến trúc
 
-SmartStudy AI là nền tảng trợ lý học tập thông minh trên AWS. Hệ thống cho phép sinh viên tải lên tài liệu học tập, đặt câu hỏi với chatbot AI, tạo đề thi tự động và nhận phản hồi về kết quả học tập.
+Nhóm không thể mua custom domain qua Amazon Route 53 và không thể sử dụng Amazon Bedrock. Vì vậy, SmartStudy sử dụng domain mặc định của AWS Amplify và model chạy bằng Ollama trên máy chủ AI local tự quản lý. AWS Secrets Manager và AWS CloudTrail cũng được loại khỏi phạm vi triển khai. Kiến trúc serverless sau điều chỉnh tập trung vào AWS Amplify, AWS WAF, Amazon Cognito, Amazon API Gateway, AWS Lambda, Amazon S3, Amazon SQS, Amazon DynamoDB và Amazon CloudWatch.
 
-### Các công việc cần triển khai trong tuần này
+### Các công việc đã thực hiện trong tuần
 
-| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | --------------- | -------------- |
-| 1 | **Hoàn thiện AWS architecture** <br> - Chỉnh sửa architecture diagram <br> - Xác định luồng upload tài liệu và luồng RAG <br> - Map các AWS services với từng thành phần <br> - Rà soát bảo mật, khả năng mở rộng và chi phí | 29/06/2026 | 01/07/2026 | AWS architecture design |
-| 2 | **Triển khai backend** <br> - Thiết kế API endpoints cho upload tài liệu, chatbot, tạo đề thi và đánh giá kết quả <br> - Chuẩn bị luồng xử lý dữ liệu cho tài liệu được upload <br> - Xác định các điểm tích hợp với AI/RAG services | 02/07/2026 | 03/07/2026 | Backend tasks |
-| 3 | **Triển khai frontend** <br> - Xây dựng các màn hình ban đầu cho upload, chat, quiz và xem kết quả <br> - Kết nối thiết kế frontend với backend API <br> - Rà soát trải nghiệm người dùng và chuẩn bị integration testing | 04/07/2026 | 05/07/2026 | Frontend tasks |
+| STT | Công việc | Ngày bắt đầu | Ngày hoàn thành | Kết quả |
+| --- | --------- | ------------ | --------------- | ------- |
+| 1 | **Điều chỉnh kiến trúc** <br> - Rà soát diagram cũ và các giới hạn của dự án <br> - Loại Route 53, Bedrock, Secrets Manager và CloudTrail khỏi kiến trúc mục tiêu <br> - Bổ sung SQS, dead-letter queue, WAF, quy trình deploy từ GitHub và Ollama bên ngoài AWS <br> - Xác định hai môi trường staging và production | 29/06/2026 | 01/07/2026 | Kiến trúc đã điều chỉnh |
+| 2 | **Thiết kế backend và dữ liệu** <br> - Xác định HTTP API cho xác thực, tài liệu, hội thoại, quiz, bài thi và lượt làm bài <br> - Thiết kế lưu tài liệu trên S3 và xử lý bất đồng bộ qua SQS <br> - Thiết kế các thực thể và access pattern trên DynamoDB <br> - Xác định giao thức tích hợp với Ollama API | 02/07/2026 | 03/07/2026 | Thiết kế API và mô hình dữ liệu |
+| 3 | **Phát triển frontend** <br> - Xây dựng trang giới thiệu, luồng xác thực, dashboard, thư viện tài liệu, phòng học, luyện tập và kết quả <br> - Kết nối cấu trúc frontend với các API backend dự kiến <br> - Chuẩn bị repository GitHub và quy trình branch để triển khai qua Amplify | 04/07/2026 | 05/07/2026 | Giao diện SmartStudy ban đầu |
 
 ### Kết quả đạt được tuần 8
 
-* Phân chia dự án SmartStudy AI thành các luồng công việc AWS architecture, backend và frontend.
-* Hoàn thiện kiến trúc AWS rõ ràng hơn cho nền tảng.
-* Xác định luồng API backend chính cho upload, chatbot, tạo đề thi và đánh giá kết quả.
-* Xây dựng cấu trúc frontend ban đầu cho các workflow chính của người dùng.
-* Chuẩn bị dự án cho bước tích hợp giữa web interface, backend services và AI/RAG components.
+* Xác lập kiến trúc có thể triển khai phù hợp với các dịch vụ AWS khả dụng và ngân sách dự án.
+* Xác định luồng upload tài liệu, xử lý bất đồng bộ, hỏi đáp AI và tạo bài luyện tập.
+* Chọn Ollama chạy trên máy chủ AI local tự quản lý để thay thế Amazon Bedrock.
+* Hoàn thành các màn hình frontend ban đầu và hợp đồng API cần thiết cho quá trình tích hợp hạ tầng ở tuần 9.

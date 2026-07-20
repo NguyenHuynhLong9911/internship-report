@@ -1,126 +1,135 @@
 ---
-title: "Blog 1"
-date: 2024-01-01
+title: "Xây dựng ứng dụng Python với SQLAlchemy và Amazon Aurora DSQL"
+date: 2026-06-08
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+# Xây dựng ứng dụng Python với SQLAlchemy và Amazon Aurora DSQL
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+Khi một ứng dụng Python cần cơ sở dữ liệu có khả năng mở rộng, SQLAlchemy kết hợp với Amazon Aurora DSQL là một lựa chọn đáng chú ý. SQLAlchemy cung cấp mô hình ORM quen thuộc để định nghĩa model, xây dựng truy vấn và thao tác dữ liệu. Aurora DSQL là cơ sở dữ liệu phân tán, serverless, tương thích PostgreSQL, tự động mở rộng theo lưu lượng và sử dụng AWS IAM để xác thực thay vì lưu mật khẩu dài hạn trong ứng dụng.
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
+![Bài viết AWS về SQLAlchemy và Amazon Aurora DSQL](/internship-report/images/3-BlogsTranslated/3.1-Blog1/blog.jpg)
+
+*Hình 1: Bài viết kỹ thuật về cách tích hợp SQLAlchemy với Amazon Aurora DSQL.*
+
+## Tổng quan giải pháp
+
+Bài viết gốc minh họa bằng một ứng dụng CLI quản lý phòng khám thú y. Ứng dụng sử dụng SQLAlchemy 2.x để quản lý các model như `owner`, `pet`, `veterinarian` và `specialty`, đồng thời thực hiện các thao tác CRUD và eager loading.
+
+Luồng kết nối chính gồm:
+
+```text
+Python CLI Application
+        │ SQLAlchemy 2.x ORM
+        ▼
+Aurora DSQL Python Connector + psycopg3
+        │ IAM authentication
+        ▼
+Amazon Aurora DSQL
+```
+
+Aurora DSQL Python Connector chịu trách nhiệm tạo và làm mới IAM token ngắn hạn. Nhờ đó, ứng dụng không phải lưu mật khẩu database cố định trong source code hoặc file cấu hình.
+
+## Ba điều chỉnh quan trọng
+
+### 1. Sử dụng UUID làm primary key
+
+Aurora DSQL là một hệ thống phân tán. UUID không yêu cầu các node phối hợp để cấp giá trị tuần tự, nhờ đó thao tác insert có thể mở rộng tốt hơn và tránh điểm nghẽn từ bộ đếm ID dùng chung.
+
+SQLAlchemy có thể yêu cầu Aurora DSQL tự tạo UUID khi insert:
+
+```python
+id: Mapped[UUID] = mapped_column(
+    Uuid,
+    primary_key=True,
+    server_default=text("gen_random_uuid()"),
+)
+```
+
+Aurora DSQL vẫn hỗ trợ sequence và identity column trong một số trường hợp, nhưng UUID là lựa chọn phù hợp hơn cho workload phân tán.
+
+### 2. Quản lý quan hệ ở tầng ứng dụng
+
+Aurora DSQL hiện không hỗ trợ foreign key constraint, vì vậy không thể dùng `ForeignKey()` trực tiếp trong khai báo column. Cột tham chiếu vẫn được lưu như một UUID thông thường:
+
+```python
+owner_id: Mapped[UUID | None] = mapped_column(Uuid, nullable=True)
+```
+
+Do không có `ForeignKey()`, SQLAlchemy không thể tự suy ra điều kiện join. Quan hệ phải được khai báo rõ bằng `relationship()`, `primaryjoin` và `foreign()`:
+
+```python
+Owner.pets = relationship(
+    "Pet",
+    primaryjoin=Owner.id == foreign(Pet.owner_id),
+)
+```
+
+`foreign()` cho SQLAlchemy biết column nào đóng vai trò tham chiếu. Tính toàn vẹn quan hệ vì thế cần được kiểm tra ở tầng ứng dụng thay vì dựa vào database constraint.
+
+### 3. Bật AUTOCOMMIT cho SQLAlchemy engine
+
+Aurora DSQL không hỗ trợ `SAVEPOINT`, trong khi SQLAlchemy và psycopg có thể sử dụng cơ chế này trong quá trình khởi tạo hoặc quản lý transaction. Engine cần được cấu hình với `isolation_level="AUTOCOMMIT"`, đồng thời connection của connector sử dụng `autocommit=True`:
+
+```python
+engine = create_engine(
+    "postgresql+psycopg://",
+    creator=lambda: dsql.connect(
+        host=host,
+        user=user,
+        autocommit=True,
+    ),
+    isolation_level="AUTOCOMMIT",
+    pool_pre_ping=True,
+    pool_recycle=3300,
+)
+```
+
+`pool_pre_ping` giúp kiểm tra connection trước khi sử dụng. `pool_recycle=3300` làm mới connection trước giới hạn một giờ của Aurora DSQL.
+
+## Xác thực bằng AWS IAM
+
+Aurora DSQL sử dụng token IAM có thời hạn thay cho mật khẩu database dài hạn. Ứng dụng cần quyền `dsql:DbConnect` cho user thông thường hoặc `dsql:DbConnectAdmin` khi thực hiện tác vụ quản trị. Policy runtime nên được giới hạn vào ARN của cluster cụ thể theo nguyên tắc đặc quyền tối thiểu.
+
+Connector xử lý việc tạo và làm mới token, còn SQLAlchemy tiếp tục cung cấp Session, ORM query và connection pooling như trong một ứng dụng PostgreSQL quen thuộc.
+
+## CRUD và eager loading
+
+Sau khi cấu hình model và engine, ứng dụng có thể thực hiện các thao tác create, read, update và delete bằng SQLAlchemy Session. Những quan hệ khai báo ở tầng ứng dụng vẫn có thể dùng `joinedload()` để eager-load dữ liệu liên quan trong cùng một truy vấn.
+
+Điều quan trọng là việc không có foreign key constraint không đồng nghĩa với không có quan hệ giữa các model. Quan hệ vẫn tồn tại trong ORM, nhưng ứng dụng chịu trách nhiệm bảo đảm ID tham chiếu hợp lệ và xử lý quy tắc xóa hoặc cập nhật dữ liệu liên quan.
+
+## Xử lý xung đột ghi
+
+Aurora DSQL sử dụng optimistic concurrency control. Khi hai transaction cập nhật cùng dữ liệu hoặc session sử dụng schema cache không còn hợp lệ, database có thể trả về `SQLSTATE 40001`. Trong psycopg3, lỗi này xuất hiện dưới dạng `SerializationFailure` và có thể retry an toàn.
+
+Ứng dụng nên áp dụng exponential backoff kết hợp jitter:
+
+```python
+for attempt in range(max_retries + 1):
+    try:
+        return operation()
+    except psycopg.errors.SerializationFailure:
+        if attempt == max_retries:
+            raise
+        backoff = base_delay * (2 ** attempt)
+        time.sleep(backoff + random.uniform(0, backoff))
+```
+
+Backoff làm tăng thời gian chờ sau mỗi lần thất bại, còn jitter thêm độ trễ ngẫu nhiên để nhiều request không retry đồng thời và tiếp tục xung đột.
+
+## Những điểm cần ghi nhớ
+
+Để SQLAlchemy hoạt động tốt với Aurora DSQL, cần ghi nhớ ba pattern chính:
+
+1. Dùng UUID làm primary key cho workload phân tán.
+2. Dùng application-level relationship thay cho foreign key constraint.
+3. Cấu hình engine ở chế độ AUTOCOMMIT để tránh thao tác SAVEPOINT không được hỗ trợ.
+
+Ngoài ra, ứng dụng production nên sử dụng IAM theo nguyên tắc đặc quyền tối thiểu, tái tạo connection trước khi hết hạn và bổ sung retry logic cho transaction conflict. Những pattern này không chỉ áp dụng cho SQLAlchemy mà còn hữu ích với nhiều Python ORM khác khi làm việc với Aurora DSQL.
 
 ---
 
-## Hướng dẫn kiến trúc
-
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
-
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
-
-**Kiến trúc giải pháp bây giờ như sau:**
-
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
-
----
-
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
-
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
-
----
-
-## Lựa chọn công nghệ và phạm vi giao tiếp
-
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
-
----
-
-## The pub/sub hub
-
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
-
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
-
----
-
-## Core microservice
-
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
-
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
-
----
-
-## Front door microservice
-
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
-
----
-
-## Staging ER7 microservice
-
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
-
----
-
-## Tính năng mới trong giải pháp
-
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+**Nguồn và credit:** Dipen Patel, [Building Python applications with SQLAlchemy and Aurora DSQL – AWS Database Blog](https://aws.amazon.com/blogs/database/building-python-applications-with-sqlalchemy-and-aurora-dsql/), ngày 08/06/2026.
