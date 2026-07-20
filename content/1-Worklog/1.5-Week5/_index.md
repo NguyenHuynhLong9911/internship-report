@@ -1,31 +1,32 @@
 ---
 title: "Week 5 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-11
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
 ### Week 5 Objectives
 
-* Learn the main storage services in AWS.
-* Understand common use cases for Amazon S3, EBS, EFS, FSx, and Storage Gateway.
-* Practice basic storage configuration and data management tasks.
-* Compare object, block, file, and hybrid storage models.
+* Meet and become familiar with the other team members.
+* Participate in an on-site working session at the office.
+* Discuss the direction of the work and assign responsibilities within the team.
+* Complete introductory labs on MFA, IAM, and AWS Budgets by following the documentation on GitHub.
 
-### Tasks to be carried out this week
+### Tasks completed this week
 
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | ---- | ---------- | --------------- | ------------------ |
-| 1 | **Session 4 - AWS Storage Services** <br> - Review Amazon S3 concepts <br> - Create and configure an S3 bucket <br> - Upload, organize, and manage objects <br> - Review versioning, lifecycle rules, and access options | 08/06/2026 | 10/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
-| 2 | **Block and File Storage** <br> - Learn Amazon EBS use cases <br> - Review snapshot concepts <br> - Learn Amazon EFS shared file storage <br> - Compare EBS and EFS for application workloads | 11/06/2026 | 12/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
-| 3 | **Advanced and Hybrid Storage** <br> - Learn Amazon FSx use cases <br> - Review AWS Storage Gateway <br> - Understand hybrid storage scenarios <br> - Summarize storage service selection criteria | 13/06/2026 | 14/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| No. | Task | Start Date | Completion Date | Result | Reference Material |
+| --- | ---- | ---------- | --------------- | ------ | ------------------ |
+| 1 | **Meet the team at the office** <br> - Become acquainted with the team members <br> - Discuss collaboration and working schedules <br> - Agree on communication methods for the internship | 11/05/2026 | 11/05/2026 | Established the team's initial working and communication approach | — |
+| 2 | **Discuss and assign responsibilities** <br> - Discuss the topics that needed to be studied and completed <br> - Divide the initial work among team members <br> - Identify the first labs to be attempted | 11/05/2026 | 12/05/2026 | Established an initial assignment and working plan | — |
+| 3 | **Configure MFA and explore IAM** <br> - Configure MFA to strengthen AWS account security <br> - Explore IAM users, groups, roles, and policies <br> - Become familiar with granting access permissions on AWS | 13/05/2026 | 15/05/2026 | Understood the basic steps for account protection and access management | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| 4 | **Configure AWS Budgets** <br> - Explore the cost-monitoring purpose of AWS Budgets <br> - Create a budget and configure an alert threshold <br> - Review cost-tracking information for the account | 16/05/2026 | 17/05/2026 | Established a basic budget-monitoring mechanism | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
 
 ### Week 5 Achievements
 
-* Understood the differences between object, block, file, and hybrid storage in AWS.
-* Practiced basic Amazon S3 operations and reviewed key bucket configuration options.
-* Learned when to use Amazon EBS for EC2-backed workloads.
-* Understood how Amazon EFS supports shared file access across multiple compute resources.
-* Reviewed Amazon FSx and AWS Storage Gateway for specialized and hybrid storage needs.
-* Built a clearer decision framework for choosing the right AWS storage service.
+* Met the team and attended the first on-site working session at the office.
+* Agreed on how responsibilities, collaboration, and progress would be managed.
+* Moved from introductory theory to hands-on AWS practice.
+* Configured MFA and understood the basic role of IAM in security, authentication, and authorization.
+* Became familiar with AWS Budgets for monitoring the budget and proactively controlling costs.
+* Completed the introductory labs by following the AWS First Cloud Journey GitHub repository.

@@ -1,31 +1,29 @@
 ---
 title: "Week 6 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-18
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
 ### Week 6 Objectives
 
-* Learn AWS security fundamentals with Identity and Access Management.
-* Understand IAM users, groups, roles, policies, and permissions.
-* Practice least privilege access design.
-* Review account security controls and access auditing basics.
+* Complete the AWS Systems Manager Session Manager lab.
+* Learn how to connect to and manage EC2 instances without relying on direct SSH or RDP access.
+* Discuss ideas and prepare an initial proposal for the group project.
+* Identify the problem, objectives, and expected project scope.
 
-### Tasks to be carried out this week
+### Tasks completed this week
 
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | ---- | ---------- | --------------- | ------------------ |
-| 1 | **Session 5 - AWS Security and IAM** <br> - Review IAM concepts <br> - Create IAM users and groups <br> - Attach managed policies <br> - Test permission boundaries through console access | 15/06/2026 | 17/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
-| 2 | **IAM Policies and Roles** <br> - Learn policy structure <br> - Compare AWS managed and customer managed policies <br> - Create IAM roles for AWS services <br> - Review trust policy and permission policy concepts | 18/06/2026 | 19/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
-| 3 | **Account Security Review** <br> - Review MFA and root account protection <br> - Learn least privilege best practices <br> - Review access keys and credential hygiene <br> - Summarize IAM security recommendations | 20/06/2026 | 21/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| No. | Task | Start Date | Completion Date | Result | Reference Material |
+| --- | ---- | ---------- | --------------- | ------ | ------------------ |
+| 1 | **Prepare the Session Manager lab** <br> - Create the VPC, public subnet, and private subnet described in the instructions <br> - Prepare security groups and EC2 instances <br> - Create the IAM role required by Systems Manager | 18/05/2026 | 19/05/2026 | Completed the environment required for the lab | <https://000058.awsstudygroup.com/> |
+| 2 | **Work with AWS Systems Manager Session Manager** <br> - Connect to public and private EC2 instances <br> - Explore VPC endpoints for Systems Manager <br> - Practice session log management and port forwarding <br> - Clean up the resources after completion | 20/05/2026 | 22/05/2026 | Understood the workflow for managing EC2 sessions with Session Manager | <https://000058.awsstudygroup.com/> |
+| 3 | **Prepare the group project proposal** <br> - Discuss practical problems the group wanted to address <br> - Collect and evaluate ideas <br> - Identify the expected objectives, scope, and target users <br> - Prepare the initial proposal content | 23/05/2026 | 24/05/2026 | Produced a preliminary proposal for further discussion and refinement | — |
 
 ### Week 6 Achievements
 
-* Understood how IAM controls authentication and authorization in AWS.
-* Practiced organizing users into groups and assigning permissions through policies.
-* Learned how IAM roles allow AWS services and workloads to access resources securely.
-* Reviewed the structure and purpose of IAM policy documents.
-* Reinforced least privilege thinking when granting access to AWS resources.
-* Improved awareness of root account protection, MFA, and credential management.
+* Completed the AWS Systems Manager Session Manager lab.
+* Understood how Session Manager supports connections to and management of public and private EC2 instances.
+* Became familiar with IAM roles, VPC endpoints, session logs, and port forwarding within the lab scope.
+* Worked with the group to form an initial proposal and identify the project's expected problem, objectives, and scope.

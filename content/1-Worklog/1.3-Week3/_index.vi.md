@@ -1,30 +1,28 @@
 ---
 title: "Worklog Tuần 3"
-date: 2024-01-01
-weight: 1
+date: 2026-04-27
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
 ### Mục tiêu tuần 3
 
-* Tiếp tục tìm hiểu các dịch vụ mạng trong AWS sau phần VPC và Session Manager.
-* Hiểu cách VPC Peering kết nối riêng tư giữa hai VPC.
-* Nắm được vai trò của route table, Network ACL và DNS trong kết nối giữa các VPC peering.
-* Tìm hiểu Transit Gateway như một hub mở rộng để kết nối nhiều VPC và nhiều hệ thống mạng.
+* Tiếp tục hoàn thiện cấu trúc website báo cáo trên GitHub Pages.
+* Làm quen thêm với cách cập nhật và kiểm tra website Hugo.
+* Xem video của AWS First Cloud Journey để tìm hiểu nội dung và quy trình của các bài lab.
+* Lựa chọn các chủ đề AWS phù hợp để học tập trong những tuần tiếp theo.
 
-### Các công việc cần triển khai trong tuần này
+### Các công việc đã thực hiện
 
-| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | --------------- | -------------- |
-| 1 | **000019 - Thiết lập VPC Peering** <br> - Các bước chuẩn bị <br> - Cập nhật Network ACL <br> - Tạo kết nối Peering <br> - Cấu hình Route tables <br> - Kích hoạt Cross-Peer DNS | 25/05/2026 | 28/05/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
-| 2 | **000020 - Thiết lập Transit Gateway** <br> - Thiết lập hạ tầng <br> - Tạo Transit Gateway <br> - Transit Gateway Attachments <br> - Tạo Route Table cho TGW <br> - Thêm Gateway vào Route Tables và kiểm tra kết quả | 29/05/2026 | 31/05/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| STT | Công việc | Ngày bắt đầu | Ngày hoàn thành | Kết quả |
+| --- | --------- | ------------ | --------------- | ------- |
+| 1 | **Hoàn thiện website GitHub Pages** <br> - Điều chỉnh cấu trúc nội dung của Workshop Template <br> - Thử cập nhật nội dung Hugo và kiểm tra kết quả sau khi triển khai <br> - Sắp xếp các mục ban đầu của báo cáo | 27/04/2026 | 29/04/2026 | Website có cấu trúc rõ ràng hơn và cập nhật ổn định |
+| 2 | **Tìm hiểu các bài lab AWS** <br> - Xem video hướng dẫn trên kênh AWS First Cloud Journey <br> - Ghi nhận mục tiêu và nội dung chính của các bài lab <br> - Tìm hiểu những dịch vụ AWS xuất hiện trong bài hướng dẫn | 30/04/2026 | 03/05/2026 | Có cái nhìn tổng quan về các bài lab để chuẩn bị học và thực hành |
 
 ### Kết quả đạt được tuần 3
 
-* Hiểu mục đích của VPC Peering và trường hợp nên sử dụng để kết nối hai VPC.
-* Thực hành các bước chính khi thiết lập VPC Peering, bao gồm cập nhật route table, cấu hình Network ACL và kích hoạt Cross-Peer DNS.
-* Nắm được giới hạn của VPC Peering và lý do cần mô hình kết nối tập trung hơn khi hệ thống mạng mở rộng.
-* Tìm hiểu Transit Gateway như một dịch vụ mạng theo mô hình hub-and-spoke để kết nối nhiều VPC và hệ thống on-premises.
-* Thực hành tạo Transit Gateway attachments và route tables.
-* Hiểu rõ hơn cách định tuyến trong AWS ảnh hưởng đến kết nối riêng tư giữa các workload.
+* Tiếp tục hoàn thiện website báo cáo sử dụng Hugo, Workshop Template và GitHub Pages.
+* Hiểu rõ hơn quy trình cập nhật nội dung và xuất bản website từ repository GitHub.
+* Tìm hiểu tổng quan các bài lab qua video AWS First Cloud Journey.
+* Xác định được các chủ đề cần tiếp tục nghiên cứu; trong tuần này chủ yếu dừng ở mức xem và tìm hiểu, chưa ghi nhận là đã hoàn thành các bài lab.
