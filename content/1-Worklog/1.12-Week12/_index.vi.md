@@ -14,11 +14,11 @@ pre: " <b> 1.12. </b> "
 
 ### Các công việc đã thực hiện
 
-| STT | Công việc | Thời gian | Kết quả |
-| --- | --------- | --------- | ------- |
-| 1 | Cập nhật cấu hình và kiến trúc, sử dụng domain Amplify thay cho Route 53 | 29/06–30/06 | Loại Route 53 khỏi hệ thống |
-| 2 | Chuẩn bị Docker và chạy model AI trong môi trường local | 01/07–02/07 | Local AI hoạt động trên máy chủ local |
-| 3 | Kết nối Local AI với quy trình truy xuất tài liệu và hỏi đáp RAG | 03/07–05/07 | RAG có thể sử dụng model local thay cho Bedrock |
+| STT | Công việc | Ngày bắt đầu | Ngày hoàn thành | Kết quả |
+| --- | --------- | ------------ | --------------- | ------- |
+| 1 | Cập nhật cấu hình và kiến trúc, sử dụng domain Amplify thay cho Route 53 | 29/06/2026 | 30/06/2026 | Loại Route 53 khỏi hệ thống |
+| 2 | Chuẩn bị Docker và chạy model AI trong môi trường local | 01/07/2026 | 02/07/2026 | Local AI hoạt động trên máy chủ local |
+| 3 | Kết nối Local AI với quy trình truy xuất tài liệu và hỏi đáp RAG | 03/07/2026 | 05/07/2026 | RAG có thể sử dụng model local thay cho Bedrock |
 
 ### Kết quả đạt được tuần 12
 

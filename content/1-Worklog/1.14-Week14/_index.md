@@ -14,11 +14,11 @@ pre: " <b> 1.14. </b> "
 
 ### Tasks completed this week
 
-| No. | Task | Period | Result |
-| --- | ---- | ------ | ------ |
-| 1 | Revise the architecture to match the actual system | 13/07–14/07 | Diagram reflected the implemented approach |
-| 2 | Improve the features and test the SmartStudy website | 15/07–17/07 | Website became more complete and stable |
-| 3 | Complete the GitHub Pages report and demo video | 18/07–19/07 | Completed the project report and demo video |
+| No. | Task | Start Date | Completion Date | Result |
+| --- | ---- | ---------- | --------------- | ------ |
+| 1 | Revise the architecture to match the actual system | 13/07/2026 | 14/07/2026 | Diagram reflected the implemented approach |
+| 2 | Improve the features and test the SmartStudy website | 15/07/2026 | 17/07/2026 | Website became more complete and stable |
+| 3 | Complete the GitHub Pages report and demo video | 18/07/2026 | 19/07/2026 | Completed the project report and demo video |
 
 ### Week 14 Achievements
 

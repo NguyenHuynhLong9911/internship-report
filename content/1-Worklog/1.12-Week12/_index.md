@@ -14,11 +14,11 @@ pre: " <b> 1.12. </b> "
 
 ### Tasks completed this week
 
-| No. | Task | Period | Result |
-| --- | ---- | ------ | ------ |
-| 1 | Update the configuration and architecture to use the Amplify domain instead of Route 53 | 29/06–30/06 | Removed Route 53 from the system |
-| 2 | Prepare Docker and run the AI model in the local environment | 01/07–02/07 | Local AI running on the local server |
-| 3 | Connect Local AI to the document retrieval and RAG question-answering workflow | 03/07–05/07 | RAG used the local model instead of Bedrock |
+| No. | Task | Start Date | Completion Date | Result |
+| --- | ---- | ---------- | --------------- | ------ |
+| 1 | Update the configuration and architecture to use the Amplify domain instead of Route 53 | 29/06/2026 | 30/06/2026 | Removed Route 53 from the system |
+| 2 | Prepare Docker and run the AI model in the local environment | 01/07/2026 | 02/07/2026 | Local AI running on the local server |
+| 3 | Connect Local AI to the document retrieval and RAG question-answering workflow | 03/07/2026 | 05/07/2026 | RAG used the local model instead of Bedrock |
 
 ### Week 12 Achievements
 
