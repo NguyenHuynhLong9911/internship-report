@@ -1,31 +1,32 @@
 ---
 title: "Worklog Tuần 5"
-date: 2024-01-01
-weight: 1
+date: 2026-05-11
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
 ### Mục tiêu tuần 5
 
-* Tìm hiểu các dịch vụ lưu trữ chính trong AWS.
-* Hiểu các trường hợp sử dụng phổ biến của Amazon S3, EBS, EFS, FSx và Storage Gateway.
-* Thực hành các cấu hình lưu trữ và thao tác quản lý dữ liệu cơ bản.
-* So sánh các mô hình object storage, block storage, file storage và hybrid storage.
+* Gặp gỡ và làm quen với các thành viên trong nhóm.
+* Tham gia làm việc trực tiếp tại văn phòng.
+* Thảo luận định hướng và phân công công việc trong nhóm.
+* Thực hiện các bài lab cơ bản về MFA, IAM và AWS Budgets theo tài liệu trên GitHub.
 
-### Các công việc cần triển khai trong tuần này
+### Các công việc đã thực hiện
 
-| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | --------------- | -------------- |
-| 1 | **Buổi 4 - Dịch vụ lưu trữ trong AWS** <br> - Ôn tập khái niệm Amazon S3 <br> - Tạo và cấu hình S3 bucket <br> - Upload, sắp xếp và quản lý object <br> - Tìm hiểu versioning, lifecycle rules và các tùy chọn truy cập | 08/06/2026 | 10/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
-| 2 | **Block Storage và File Storage** <br> - Tìm hiểu trường hợp sử dụng Amazon EBS <br> - Ôn tập khái niệm snapshot <br> - Tìm hiểu Amazon EFS cho shared file storage <br> - So sánh EBS và EFS cho workload ứng dụng | 11/06/2026 | 12/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
-| 3 | **Advanced Storage và Hybrid Storage** <br> - Tìm hiểu trường hợp sử dụng Amazon FSx <br> - Ôn tập AWS Storage Gateway <br> - Hiểu các tình huống hybrid storage <br> - Tổng kết tiêu chí lựa chọn dịch vụ lưu trữ | 13/06/2026 | 14/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| STT | Công việc | Ngày bắt đầu | Ngày hoàn thành | Kết quả | Tài liệu tham khảo |
+| --- | --------- | ------------ | --------------- | ------- | ------------------ |
+| 1 | **Gặp gỡ nhóm tại văn phòng** <br> - Làm quen với các thành viên <br> - Trao đổi về cách phối hợp và lịch làm việc <br> - Thống nhất phương thức trao đổi trong quá trình thực tập | 11/05/2026 | 11/05/2026 | Thiết lập cách làm việc và liên lạc trong nhóm | — |
+| 2 | **Thảo luận và phân công công việc** <br> - Trao đổi về những nội dung cần học và thực hiện <br> - Chia công việc ban đầu giữa các thành viên <br> - Xác định các bài lab sẽ thực hành trước | 11/05/2026 | 12/05/2026 | Có phân công và kế hoạch làm việc ban đầu | — |
+| 3 | **Thiết lập MFA và tìm hiểu IAM** <br> - Thiết lập MFA để tăng cường bảo mật tài khoản AWS <br> - Tìm hiểu IAM user, group, role và policy <br> - Làm quen với cách cấp quyền truy cập trên AWS | 13/05/2026 | 15/05/2026 | Hiểu các bước bảo vệ tài khoản và quản lý quyền truy cập cơ bản | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| 4 | **Thiết lập AWS Budgets** <br> - Tìm hiểu chức năng theo dõi chi phí của AWS Budgets <br> - Tạo budget và cấu hình ngưỡng cảnh báo <br> - Kiểm tra thông tin theo dõi chi phí trên tài khoản | 16/05/2026 | 17/05/2026 | Thiết lập được cơ chế theo dõi ngân sách cơ bản | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
 
 ### Kết quả đạt được tuần 5
 
-* Hiểu sự khác nhau giữa object storage, block storage, file storage và hybrid storage trong AWS.
-* Thực hành các thao tác cơ bản với Amazon S3 và nắm được các cấu hình quan trọng của bucket.
-* Biết khi nào nên sử dụng Amazon EBS cho workload chạy trên EC2.
-* Hiểu cách Amazon EFS hỗ trợ truy cập file dùng chung giữa nhiều tài nguyên compute.
-* Tìm hiểu Amazon FSx và AWS Storage Gateway cho các nhu cầu lưu trữ chuyên biệt và hybrid.
-* Xây dựng được khung tư duy rõ hơn để lựa chọn dịch vụ lưu trữ AWS phù hợp.
+* Gặp gỡ nhóm và có buổi làm việc trực tiếp đầu tiên tại văn phòng.
+* Thống nhất cách phối hợp, phân công và theo dõi công việc giữa các thành viên.
+* Chuyển từ giai đoạn tìm hiểu lý thuyết sang thực hành trên AWS.
+* Thiết lập MFA và hiểu vai trò cơ bản của IAM trong bảo mật, xác thực và phân quyền.
+* Làm quen với AWS Budgets để theo dõi ngân sách và chủ động kiểm soát chi phí.
+* Hoàn thành các bài lab cơ bản theo hướng dẫn trong repository GitHub của AWS First Cloud Journey.

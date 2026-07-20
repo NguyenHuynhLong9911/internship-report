@@ -1,6 +1,6 @@
 ---
 title: "Week 1 Worklog"
-date: 2024-01-01
+date: 2026-04-17
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
@@ -8,27 +8,21 @@ pre: " <b> 1.1. </b> "
 
 ### Week 1 Objectives
 
-* Create and secure an AWS account.
-* Learn how to configure MFA for the AWS root account.
-* Understand administrator users, administrator groups, and account verification support.
-* Get started with AWS Budgets to monitor cost, usage, reservations, and Savings Plans.
+* Attend the internship program kickoff session.
+* Create an AWS account in preparation for hands-on activities.
+* Upgrade the account plan as required by the program.
+* Complete the assigned task to receive an additional **USD 100 in AWS credits**.
 
-### Tasks to be carried out this week
+### Tasks completed this week
 
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | ---- | ---------- | --------------- | ------------------ |
-| 1 | **000001 - Create an AWS Account** <br> - Create an AWS account <br> - Set up MFA for the AWS root account <br> - Create administrator account and administrator group <br> - Learn account verification support | 11/05/2026 | 13/05/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
-| 2 | **000007 - Getting Started with AWS Budgets** <br> - Create a cost budget <br> - Create a usage budget <br> - Create a reservation budget <br> - Create a Savings Plans budget | 14/05/2026 | 17/05/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| No. | Task | Start Date | Completion Date | Result |
+| --- | ---- | ---------- | --------------- | ------ |
+| 1 | **Attend the Kickoff** <br> - Receive an introduction to the internship program <br> - Understand the initial roadmap and requirements | 17/04/2026 | 17/04/2026 | Completed the orientation session |
+| 2 | **Prepare the AWS account** <br> - Create an AWS account <br> - Upgrade the account plan according to the provided instructions | 17/04/2026 | 18/04/2026 | Account ready for hands-on activities |
+| 3 | **Receive AWS credits** <br> - Complete the task assigned by the program <br> - Finish the required steps to receive an additional USD 100 in credits | 18/04/2026 | 19/04/2026 | Received an additional USD 100 in AWS credits |
 
 ### Week 1 Achievements
 
-* Created an AWS account and understood the main steps required during the account setup process.
-* Enabled MFA for the AWS root account to improve account security.
-* Learned how to organize administrator access through an administrator account and group.
-* Reviewed account verification support to understand how AWS validates and supports new accounts.
-* Practiced using AWS Budgets to create:
-  * Cost budget
-  * Usage budget
-  * Reservation budget
-  * Savings Plans budget
-* Built a stronger foundation for account security and cost management before moving to networking and compute services.
+* Completed the Kickoff and understood the initial internship program requirements.
+* Successfully created the AWS account and upgraded its plan.
+* Completed the assigned task and received an additional **USD 100 in AWS credits** for learning, hands-on practice, and project deployment.

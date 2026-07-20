@@ -1,31 +1,29 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
-weight: 1
+date: 2026-05-18
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
 ### Mục tiêu tuần 6
 
-* Tìm hiểu nền tảng bảo mật trong AWS với Identity and Access Management.
-* Hiểu IAM user, group, role, policy và permission.
-* Thực hành thiết kế quyền truy cập theo nguyên tắc least privilege.
-* Ôn tập các kiểm soát bảo mật tài khoản và kiến thức cơ bản về kiểm tra truy cập.
+* Thực hiện bài lab về AWS Systems Manager Session Manager.
+* Tìm hiểu cách kết nối và quản lý EC2 mà không phụ thuộc vào kết nối SSH hoặc RDP trực tiếp.
+* Thảo luận ý tưởng và xây dựng đề xuất ban đầu cho dự án nhóm.
+* Xác định vấn đề, mục tiêu và phạm vi dự kiến của dự án.
 
-### Các công việc cần triển khai trong tuần này
+### Các công việc đã thực hiện
 
-| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | --------------- | -------------- |
-| 1 | **Buổi 5 - Dịch vụ bảo mật trong AWS và IAM** <br> - Ôn tập khái niệm IAM <br> - Tạo IAM user và group <br> - Gán managed policy <br> - Kiểm tra giới hạn quyền thông qua truy cập console | 15/06/2026 | 17/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
-| 2 | **IAM Policies và Roles** <br> - Tìm hiểu cấu trúc policy <br> - So sánh AWS managed policy và customer managed policy <br> - Tạo IAM role cho AWS services <br> - Ôn tập trust policy và permission policy | 18/06/2026 | 19/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
-| 3 | **Rà soát bảo mật tài khoản** <br> - Ôn tập MFA và bảo vệ root account <br> - Tìm hiểu best practices về least privilege <br> - Rà soát access key và quản lý credential <br> - Tổng kết khuyến nghị bảo mật IAM | 20/06/2026 | 21/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| STT | Công việc | Ngày bắt đầu | Ngày hoàn thành | Kết quả | Tài liệu tham khảo |
+| --- | --------- | ------------ | --------------- | ------- | ------------------ |
+| 1 | **Chuẩn bị bài lab Session Manager** <br> - Tạo VPC, public subnet và private subnet theo hướng dẫn <br> - Chuẩn bị security group và các máy chủ EC2 <br> - Tạo IAM role cần thiết cho Systems Manager | 18/05/2026 | 19/05/2026 | Hoàn thành môi trường phục vụ bài lab | <https://000058.awsstudygroup.com/vi/> |
+| 2 | **Làm việc với AWS Systems Manager Session Manager** <br> - Kết nối đến EC2 public và EC2 private <br> - Tìm hiểu VPC endpoint dành cho Systems Manager <br> - Thực hành quản lý session logs và port forwarding <br> - Dọn dẹp tài nguyên sau khi hoàn thành | 20/05/2026 | 22/05/2026 | Hiểu quy trình quản lý phiên kết nối EC2 bằng Session Manager | <https://000058.awsstudygroup.com/vi/> |
+| 3 | **Đề xuất dự án nhóm** <br> - Trao đổi các vấn đề thực tế mà nhóm muốn giải quyết <br> - Tổng hợp và đánh giá các ý tưởng <br> - Xác định mục tiêu, phạm vi và nhóm người dùng dự kiến <br> - Chuẩn bị nội dung đề xuất ban đầu | 23/05/2026 | 24/05/2026 | Hình thành đề xuất sơ bộ để tiếp tục thảo luận và hoàn thiện | — |
 
 ### Kết quả đạt được tuần 6
 
-* Hiểu cách IAM kiểm soát authentication và authorization trong AWS.
-* Thực hành tổ chức user vào group và cấp quyền thông qua policy.
-* Biết cách IAM role giúp AWS services và workload truy cập tài nguyên an toàn.
-* Nắm được cấu trúc và mục đích của IAM policy document.
-* Củng cố tư duy least privilege khi cấp quyền truy cập tài nguyên AWS.
-* Nâng cao nhận thức về bảo vệ root account, MFA và quản lý credential.
+* Hoàn thành bài lab về AWS Systems Manager Session Manager.
+* Hiểu cách Session Manager hỗ trợ kết nối và quản lý các máy chủ EC2 public, private.
+* Làm quen với IAM role, VPC endpoint, session logs và port forwarding trong phạm vi bài lab.
+* Cùng nhóm hình thành đề xuất ban đầu, xác định vấn đề, mục tiêu và phạm vi dự kiến của dự án.

@@ -1,53 +1,26 @@
 ---
 title: "Worklog Tuần 12"
-date: 2024-01-01
-weight: 2
+date: 2026-06-29
+weight: 12
 chapter: false
-draft: true
-pre: " <b> 1.12 </b> "
+pre: " <b> 1.12. </b> "
 ---
-### Mục tiêu tuần 12:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Mục tiêu tuần 12
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+* Áp dụng phương án kiến trúc mới không sử dụng Route 53 và Bedrock.
+* Chạy môi trường AI local bằng Docker.
+* Kết nối Local AI vào luồng RAG của SmartStudy.
 
+### Các công việc đã thực hiện
 
-### Kết quả đạt được tuần 12:
+| STT | Công việc | Thời gian | Kết quả |
+| --- | --------- | --------- | ------- |
+| 1 | Cập nhật cấu hình và kiến trúc, sử dụng domain Amplify thay cho Route 53 | 29/06–30/06 | Loại Route 53 khỏi hệ thống |
+| 2 | Chuẩn bị Docker và chạy model AI trong môi trường local | 01/07–02/07 | Local AI hoạt động trên máy chủ local |
+| 3 | Kết nối Local AI với quy trình truy xuất tài liệu và hỏi đáp RAG | 03/07–05/07 | RAG có thể sử dụng model local thay cho Bedrock |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+### Kết quả đạt được tuần 12
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Áp dụng thành công phương án không dùng Route 53 và Bedrock.
+* Chạy Local AI bằng Docker và tích hợp vào luồng RAG.

@@ -1,31 +1,28 @@
 ---
 title: "Worklog Tuần 4"
-date: 2024-01-01
-weight: 1
+date: 2026-05-04
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
 ### Mục tiêu tuần 4
 
-* Tìm hiểu các dịch vụ tính toán cốt lõi trong AWS.
-* Thực hành các thao tác cơ bản với Amazon EC2.
-* Hiểu cách Auto Scaling Group hỗ trợ tăng tính sẵn sàng và khả năng mở rộng.
-* Khám phá Amazon Lightsail như một cách đơn giản để triển khai ứng dụng.
+* Tìm hiểu tổng quan về nền tảng điện toán đám mây AWS.
+* Làm quen với các nhóm dịch vụ AWS phổ biến.
+* Hiểu vai trò cơ bản của từng nhóm dịch vụ trước khi bắt đầu thực hành lab.
+* Tiếp tục tham khảo tài liệu và video của AWS First Cloud Journey.
 
-### Các công việc cần triển khai trong tuần này
+### Các công việc đã thực hiện
 
-| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | --------------- | -------------- |
-| 1 | **000004 - Thao tác EC2 đơn giản** <br> - Tạo máy chủ EC2 <br> - Thực hiện snapshot EC2 instance <br> - Cài đặt ứng dụng trên EC2 | 01/06/2026 | 02/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
-| 2 | **000006 - Triển khai Auto Scaling Group** <br> - Khởi tạo Launch Template <br> - Khởi tạo Target Group <br> - Khởi tạo Load Balancer <br> - Khởi tạo Auto Scaling Group <br> - Kiểm tra kết quả | 03/06/2026 | 05/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
-| 3 | **000045 - Bắt đầu với Amazon Lightsail** <br> - Chuẩn bị <br> - Kiểm tra ứng dụng trên Lightsail <br> - Sử dụng Lightsail Load Balancer <br> - Sử dụng RDS <br> - Dịch chuyển sang EC2 | 06/06/2026 | 07/06/2026 | <https://github.com/AWS-First-Cloud-Journey/FCJ-2023> |
+| STT | Công việc | Ngày bắt đầu | Ngày hoàn thành | Kết quả |
+| --- | --------- | ------------ | --------------- | ------- |
+| 1 | **Tìm hiểu tổng quan AWS** <br> - Tìm hiểu mô hình điện toán đám mây và hệ thống Region <br> - Làm quen với giao diện AWS Management Console <br> - Tìm hiểu cách các dịch vụ AWS phối hợp trong một hệ thống | 04/05/2026 | 06/05/2026 | Có kiến thức tổng quan về nền tảng AWS |
+| 2 | **Tìm hiểu các nhóm dịch vụ AWS** <br> - Compute và serverless <br> - Storage và database <br> - Networking, security và monitoring <br> - Ghi nhận vai trò cơ bản của các dịch vụ được giới thiệu | 07/05/2026 | 10/05/2026 | Phân biệt được mục đích của các nhóm dịch vụ chính |
 
 ### Kết quả đạt được tuần 4
 
-* Hiểu quy trình cơ bản để tạo và quản lý một EC2 instance.
-* Thực hành tạo snapshot để bảo vệ và khôi phục workload trên EC2.
-* Cài đặt và kiểm tra ứng dụng trên máy chủ EC2.
-* Nắm được các thành phần chính của Auto Scaling Group, bao gồm Launch Template, Target Group và Load Balancer.
-* Hiểu cách Auto Scaling giúp ứng dụng xử lý lưu lượng thay đổi và cải thiện tính sẵn sàng.
-* Tìm hiểu Amazon Lightsail và so sánh với EC2 trong các tình huống triển khai ứng dụng đơn giản.
+* Hiểu tổng quan cách AWS tổ chức tài nguyên và cung cấp dịch vụ đám mây.
+* Làm quen với các nhóm dịch vụ compute, storage, database, networking, security và monitoring.
+* Có nền tảng ban đầu để đọc hướng dẫn và lựa chọn dịch vụ trong các bài lab.
+* Tuần này tập trung tìm hiểu lý thuyết; các bài lab thực hành bắt đầu từ ngày **11/05/2026** ở tuần 5.

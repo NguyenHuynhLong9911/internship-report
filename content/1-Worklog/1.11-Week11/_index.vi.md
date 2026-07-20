@@ -1,54 +1,27 @@
 ---
 title: "Worklog Tuần 11"
-date: 2024-01-01
-weight: 2
+date: 2026-06-22
+weight: 11
 chapter: false
-draft: true
 pre: " <b> 1.11. </b> "
 ---
 
-### Mục tiêu tuần 11:
+### Mục tiêu tuần 11
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Điều chỉnh kiến trúc theo các dịch vụ thực tế có thể sử dụng.
+* Tìm phương án AI thay thế Amazon Bedrock.
+* Khắc phục lỗi không thể upload tài liệu PDF.
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Các công việc đã thực hiện
 
+| STT | Công việc | Thời gian | Kết quả |
+| --- | --------- | --------- | ------- |
+| 1 | Tạm loại Route 53 và Bedrock khỏi phương án triển khai | 22/06–23/06 | Chuyển sang domain Amplify và nghiên cứu AI thay thế |
+| 2 | Phân tích giải pháp Docker và Local AI | 24/06–25/06 | Chọn hướng chạy model AI local thay cho Bedrock |
+| 3 | Kiểm tra frontend, API và cấu hình lưu trữ trong luồng upload PDF | 26/06–28/06 | Khắc phục lỗi upload và tiếp tục được luồng xử lý tài liệu |
 
-### Kết quả đạt được tuần 11:
+### Kết quả đạt được tuần 11
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Điều chỉnh hướng triển khai phù hợp với điều kiện thực tế.
+* Xác định Docker và Local AI là phương án thay thế cho Bedrock.
+* Sửa lỗi upload file PDF.

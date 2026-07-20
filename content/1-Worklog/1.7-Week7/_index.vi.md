@@ -1,34 +1,34 @@
 ---
 title: "Worklog Tuần 7"
-date: 2024-01-01
-weight: 1
+date: 2026-05-25
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
 ### Mục tiêu tuần 7
 
-* Xây dựng ý tưởng dự án **SmartStudy AI - trợ lý học tập thông minh trên AWS**.
-* Xác định người dùng chính, vấn đề cần giải quyết và các tính năng học tập quan trọng.
-* Phác thảo kiến trúc AWS ban đầu cho nền tảng học tập sử dụng Generative AI và RAG.
-* Chuẩn bị phạm vi dự án ban đầu trước khi triển khai.
+* Thống nhất ý tưởng chính thức cho dự án nhóm.
+* Xác định vấn đề, người dùng và các chức năng cốt lõi của dự án.
+* Tìm hiểu những dịch vụ AWS có thể sử dụng cho từng thành phần hệ thống.
+* Đánh giá sơ bộ tính khả dụng, quyền truy cập và chi phí của các dịch vụ được cân nhắc.
 
-### Mô tả dự án
+### Ý tưởng dự án được thống nhất
 
-SmartStudy AI là một nền tảng học tập thông minh hỗ trợ sinh viên học tập hiệu quả hơn thông qua công nghệ Generative AI và Retrieval-Augmented Generation (RAG). Người dùng có thể tải lên tài liệu học tập, tương tác với chatbot AI, tạo đề thi tự động và nhận đánh giá kết quả học tập ngay trên nền tảng web.
+Nhóm thống nhất phát triển **SmartStudy AI**, nền tảng hỗ trợ học tập từ tài liệu. Hệ thống dự kiến cho phép người dùng tải tài liệu, tương tác với trợ lý AI, tạo quiz và xem kết quả học tập. Đây là định hướng ban đầu và kiến trúc vẫn cần được kiểm chứng trước khi triển khai.
 
-### Các công việc cần triển khai trong tuần này
+### Các công việc đã thực hiện
 
-| Ngày | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | --------------- | -------------- |
-| 1 | **Lên ý tưởng dự án** <br> - Xác định người dùng mục tiêu và vấn đề học tập cần giải quyết <br> - Xác định các tính năng chính: upload tài liệu, chatbot AI, tạo đề thi, đánh giá kết quả <br> - Phác thảo user flow cho nền tảng web | 22/06/2026 | 24/06/2026 | Project planning |
-| 2 | **Kiến trúc AWS ban đầu** <br> - Vẽ phương án kiến trúc đầu tiên <br> - Xác định các thành phần frontend, backend, lưu trữ, xác thực và AI/RAG <br> - Đánh giá Amazon S3, AWS Amplify, Amazon API Gateway, AWS Lambda, Amazon Cognito, Amazon Bedrock và vector storage như các dịch vụ ứng viên | 25/06/2026 | 26/06/2026 | AWS architecture design |
-| 3 | **Chuẩn bị scope và task** <br> - Chia các module chính của dự án <br> - Chuẩn bị task breakdown ban đầu cho frontend, backend và AWS architecture <br> - Rà soát rủi ro kỹ thuật và thứ tự ưu tiên triển khai | 27/06/2026 | 28/06/2026 | Project backlog |
+| STT | Công việc | Ngày bắt đầu | Ngày hoàn thành | Kết quả |
+| --- | --------- | ------------ | --------------- | ------- |
+| 1 | **Thống nhất ý tưởng SmartStudy AI** <br> - Tổng hợp các ý tưởng đã đề xuất <br> - Xác định vấn đề học tập cần giải quyết <br> - Thống nhất người dùng mục tiêu và các chức năng cốt lõi <br> - Phác thảo luồng sử dụng ban đầu | 25/05/2026 | 27/05/2026 | Nhóm thống nhất định hướng và phạm vi sơ bộ của dự án |
+| 2 | **Tìm hiểu các dịch vụ AWS khả dụng** <br> - Khảo sát dịch vụ cho frontend, xác thực, API và backend <br> - Tìm hiểu lựa chọn cho lưu trữ, xử lý bất đồng bộ, dữ liệu và giám sát <br> - Xem xét các dịch vụ AI có thể hỗ trợ RAG và tạo quiz <br> - Kiểm tra sơ bộ giới hạn tài khoản, quyền sử dụng và chi phí | 28/05/2026 | 30/05/2026 | Có danh sách dịch vụ ứng viên để tiếp tục đánh giá |
+| 3 | **Phác thảo giải pháp ban đầu** <br> - Ghép các dịch vụ ứng viên vào từng thành phần <br> - Thảo luận luồng tải tài liệu và xử lý AI <br> - Ghi nhận các rủi ro kỹ thuật và phương án cần kiểm chứng | 30/05/2026 | 31/05/2026 | Hoàn thành kiến trúc sơ bộ, chưa xem là kiến trúc triển khai cuối cùng |
 
 ### Kết quả đạt được tuần 7
 
-* Hoàn thiện ý tưởng ban đầu cho SmartStudy AI.
-* Xác định các tính năng chính cần có cho nền tảng trợ lý học tập.
-* Tạo phương án kiến trúc đầu tiên cho workflow GenAI và RAG; các dịch vụ đề xuất vẫn cần được kiểm chứng về kỹ thuật và chi phí.
-* Xác định các thành phần chính của hệ thống gồm frontend, backend, storage, authentication và AI services.
-* Chuẩn bị định hướng rõ hơn để triển khai trong tuần 8.
+* Nhóm thống nhất ý tưởng **SmartStudy AI** và các chức năng chính của sản phẩm.
+* Xác định được các thành phần frontend, xác thực, backend, storage, dữ liệu, hàng đợi, monitoring và AI cần nghiên cứu.
+* Tạo danh sách dịch vụ AWS ứng viên như Amplify, Cognito, API Gateway, Lambda, S3, SQS, DynamoDB và CloudWatch.
+* Tìm hiểu Amazon Bedrock như một phương án AI ban đầu nhưng chưa xác nhận khả năng sử dụng.
+* Hoàn thành kiến trúc sơ bộ để tiếp tục kiểm chứng và điều chỉnh trong các tuần sau.
