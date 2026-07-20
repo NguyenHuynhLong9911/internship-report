@@ -1,126 +1,135 @@
 ---
-title: "Blog 1"
-date: 2024-01-01
+title: "Building Python Applications with SQLAlchemy and Amazon Aurora DSQL"
+date: 2026-06-08
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# Building Python Applications with SQLAlchemy and Amazon Aurora DSQL
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+When a Python application needs a scalable database, SQLAlchemy combined with Amazon Aurora DSQL is a compelling option. SQLAlchemy provides a familiar ORM for defining models, constructing queries, and manipulating data. Aurora DSQL is a distributed, serverless, PostgreSQL-compatible database that automatically scales with traffic and uses AWS IAM authentication instead of long-lived database passwords.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+![AWS article about SQLAlchemy and Amazon Aurora DSQL](/internship-report/images/3-BlogsTranslated/3.1-Blog1/blog.jpg)
+
+*Figure 1: Technical article about integrating SQLAlchemy with Amazon Aurora DSQL.*
+
+## Solution overview
+
+The original article demonstrates these concepts with a veterinary clinic CLI application. It uses SQLAlchemy 2.x to manage models such as `owner`, `pet`, `veterinarian`, and `specialty`, and performs CRUD operations and eager loading.
+
+The main connection flow is:
+
+```text
+Python CLI Application
+        │ SQLAlchemy 2.x ORM
+        ▼
+Aurora DSQL Python Connector + psycopg3
+        │ IAM authentication
+        ▼
+Amazon Aurora DSQL
+```
+
+The Aurora DSQL Python Connector generates and refreshes short-lived IAM tokens, so the application does not need to store a static database password in source code or configuration files.
+
+## Three important adaptations
+
+### 1. Use UUID primary keys
+
+Aurora DSQL is a distributed system. UUID generation does not require nodes to coordinate around a shared sequential counter, allowing inserts to scale more effectively and avoiding a centralized ID-generation bottleneck.
+
+SQLAlchemy can ask Aurora DSQL to generate the UUID during insertion:
+
+```python
+id: Mapped[UUID] = mapped_column(
+    Uuid,
+    primary_key=True,
+    server_default=text("gen_random_uuid()"),
+)
+```
+
+Aurora DSQL also supports sequences and identity columns for specific cases, but UUIDs are the recommended fit for distributed workloads.
+
+### 2. Manage relationships at the application layer
+
+Aurora DSQL does not currently support foreign key constraints, so `ForeignKey()` cannot be used directly in column definitions. A reference is stored as a regular UUID column:
+
+```python
+owner_id: Mapped[UUID | None] = mapped_column(Uuid, nullable=True)
+```
+
+Without `ForeignKey()`, SQLAlchemy cannot automatically infer join conditions. Relationships must be declared explicitly with `relationship()`, `primaryjoin`, and `foreign()`:
+
+```python
+Owner.pets = relationship(
+    "Pet",
+    primaryjoin=Owner.id == foreign(Pet.owner_id),
+)
+```
+
+The `foreign()` annotation tells SQLAlchemy which column is the referencing side. Referential integrity must therefore be enforced by the application instead of a database constraint.
+
+### 3. Enable AUTOCOMMIT for the SQLAlchemy engine
+
+Aurora DSQL does not support `SAVEPOINT`, while SQLAlchemy and psycopg may use it during connection initialization or transaction management. Configure the engine with `isolation_level="AUTOCOMMIT"` and create connector connections with `autocommit=True`:
+
+```python
+engine = create_engine(
+    "postgresql+psycopg://",
+    creator=lambda: dsql.connect(
+        host=host,
+        user=user,
+        autocommit=True,
+    ),
+    isolation_level="AUTOCOMMIT",
+    pool_pre_ping=True,
+    pool_recycle=3300,
+)
+```
+
+`pool_pre_ping` validates a connection before use, while `pool_recycle=3300` refreshes connections before Aurora DSQL's one-hour connection limit.
+
+## AWS IAM authentication
+
+Aurora DSQL uses time-limited IAM tokens instead of long-lived database passwords. An application needs `dsql:DbConnect` for a regular user or `dsql:DbConnectAdmin` for administrative tasks. Runtime policies should be restricted to the specific cluster ARN following the principle of least privilege.
+
+The connector manages token generation and refresh, while SQLAlchemy continues to provide sessions, ORM queries, and connection pooling in the familiar PostgreSQL development model.
+
+## CRUD operations and eager loading
+
+After the models and engine are configured, the application can perform create, read, update, and delete operations through SQLAlchemy sessions. Relationships defined at the application layer can still use `joinedload()` to eager-load associated records in one query.
+
+The absence of foreign key constraints does not mean the models have no relationships. The relationships still exist in the ORM, but the application is responsible for validating referenced identifiers and implementing related update or deletion rules.
+
+## Handling write conflicts
+
+Aurora DSQL uses optimistic concurrency control. When transactions conflict over the same data, or a session has stale schema information, the database can return `SQLSTATE 40001`. In psycopg3 this is exposed as `SerializationFailure` and is safe to retry.
+
+A production application should use exponential backoff with jitter:
+
+```python
+for attempt in range(max_retries + 1):
+    try:
+        return operation()
+    except psycopg.errors.SerializationFailure:
+        if attempt == max_retries:
+            raise
+        backoff = base_delay * (2 ** attempt)
+        time.sleep(backoff + random.uniform(0, backoff))
+```
+
+Backoff increases the delay after each failure, while jitter adds randomness so concurrent requests do not retry at the same moment and immediately conflict again.
+
+## Key takeaways
+
+Three patterns are essential when using SQLAlchemy with Aurora DSQL:
+
+1. Use UUID primary keys for distributed workloads.
+2. Use application-level relationships instead of foreign key constraints.
+3. Configure the engine in AUTOCOMMIT mode to avoid unsupported SAVEPOINT operations.
+
+Production applications should also apply least-privilege IAM permissions, recycle connections before expiration, and retry transaction conflicts. These patterns are useful not only for SQLAlchemy but also for other Python ORMs working with Aurora DSQL.
 
 ---
 
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
-
----
-
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
-
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
-
----
-
-## Technology Choices and Communication Scope
-
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
-
----
-
-## The Pub/Sub Hub
-
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
-
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
-
----
-
-## Core Microservice
-
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
-
----
-
-## Front Door Microservice
-
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
-
----
-
-## Staging ER7 Microservice
-
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
-
----
-
-## New Features in the Solution
-
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+**Source and credit:** Dipen Patel, [Building Python applications with SQLAlchemy and Aurora DSQL – AWS Database Blog](https://aws.amazon.com/blogs/database/building-python-applications-with-sqlalchemy-and-aurora-dsql/), June 8, 2026.

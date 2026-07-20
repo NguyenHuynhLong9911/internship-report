@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 10"
-date: 2024-01-01
-weight: 2
+date: 2026-07-13
+weight: 1
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu tuần 10
 
-### Mục tiêu tuần 10:
+* Triển khai môi trường production của SmartStudy.
+* Hoàn thiện toàn bộ luồng tài liệu, phòng học AI, bài luyện tập và kết quả.
+* Bổ sung giám sát, xử lý lỗi tích hợp và chuẩn bị demo cuối cùng.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Các công việc đã thực hiện trong tuần
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| STT | Công việc | Ngày bắt đầu | Ngày hoàn thành | Kết quả |
+| --- | --------- | ------------ | --------------- | ------- |
+| 1 | **Hạ tầng production** <br> - Triển khai Cognito, API Gateway, Lambda, S3, SQS, dead-letter queue và DynamoDB cho production bằng AWS CDK <br> - Tách biệt tài nguyên staging và production <br> - Kiểm tra IAM permission giữa các dịch vụ | 13/07/2026 | 14/07/2026 | Môi trường AWS production |
+| 2 | **Triển khai và bảo vệ frontend** <br> - Kết nối branch `main` trên GitHub với AWS Amplify <br> - Triển khai frontend production trên domain mặc định `amplifyapp.com` <br> - Bật AWS WAF protection cho Amplify Hosting <br> - Kiểm tra đăng ký và đăng nhập bằng Cognito | 14/07/2026 | 15/07/2026 | Ứng dụng web production |
+| 3 | **Tích hợp tính năng** <br> - Hoàn thiện upload và xử lý tài liệu bất đồng bộ <br> - Tích hợp phòng học với model Ollama chạy trên máy chủ AI local tự quản lý <br> - Hoàn thiện lịch sử hội thoại, tạo quiz, nộp đáp án, chấm điểm và giải thích kết quả <br> - Kiểm tra xử lý lỗi qua SQS dead-letter queue | 15/07/2026 | 17/07/2026 | Các luồng SmartStudy end-to-end |
+| 4 | **Giám sát và kiểm tra cuối** <br> - Rà soát log và metric của Lambda, SQS trên Amazon CloudWatch <br> - Cấu hình alarm cho các điều kiện quan trọng của Lambda và queue <br> - Sửa lỗi tích hợp và giao diện người dùng <br> - Chạy kiểm thử end-to-end cuối cùng và quay video demo project hoàn chỉnh | 18/07/2026 | 19/07/2026 | Hệ thống được giám sát và video demo cuối |
 
+### Kết quả đạt được tuần 10
 
-### Kết quả đạt được tuần 10:
+* Triển khai hai môi trường staging và production riêng biệt tại region `us-east-1`.
+* Tự động deploy frontend từ GitHub lên AWS Amplify và công bố SmartStudy bằng domain mặc định của Amplify.
+* Hoàn thiện luồng xác thực, quản lý tài liệu, học với AI, tạo quiz, chấm điểm và xem lại kết quả.
+* Tích hợp model Ollama chạy trên máy chủ AI local tự quản lý làm dịch vụ AI cho dự án.
+* Bổ sung giám sát bằng CloudWatch và hoàn thành demo dự án ngày 19/07/2026.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+Môi trường production được duy trì đến hết ngày 30/07/2026 để phục vụ đánh giá và trình diễn; worklog không bao gồm hoạt động cleanup.
