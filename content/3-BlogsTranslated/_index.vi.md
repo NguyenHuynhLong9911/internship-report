@@ -1,6 +1,6 @@
 ---
 title: "Blog đã dịch"
-date: 2026-06-08
+date: 2026-07-09
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
@@ -8,18 +8,16 @@ pre: " <b> 3. </b> "
 
 # Blog AWS đã dịch
 
-Phần này trình bày một bài viết kỹ thuật AWS được lựa chọn, biên dịch và tóm tắt trong thời gian thực tập. Bài viết tập trung vào cách xây dựng ứng dụng Python có khả năng mở rộng bằng SQLAlchemy 2.x và Amazon Aurora DSQL.
+Phần này tổng hợp các bài viết kỹ thuật AWS được lựa chọn, biên dịch và tóm tắt trong thời gian thực tập.
 
-## [Xây dựng ứng dụng Python với SQLAlchemy và Amazon Aurora DSQL](3.1-Blog1/)
+## [1. Xây dựng ứng dụng Python với SQLAlchemy và Amazon Aurora DSQL](3.1-Blog1/)
 
-Amazon Aurora DSQL là cơ sở dữ liệu phân tán, serverless, tương thích PostgreSQL, có khả năng tự động mở rộng theo lưu lượng ứng dụng và xác thực bằng AWS IAM. Khi kết hợp với SQLAlchemy, developer vẫn sử dụng được quy trình ORM quen thuộc của Python nhưng cần điều chỉnh một số pattern thiết kế và kết nối cho môi trường phân tán.
+Bài viết trình bày các pattern quan trọng khi sử dụng SQLAlchemy với Aurora DSQL: UUID primary key, quan hệ ở tầng ứng dụng, AUTOCOMMIT, xác thực IAM và retry khi xảy ra xung đột optimistic concurrency.
 
-Bài viết tập trung vào ba điều chỉnh quan trọng:
+[Đọc Blog 1 →](3.1-Blog1/)
 
-- Sử dụng UUID làm primary key để hỗ trợ insert phân tán có khả năng mở rộng.
-- Khai báo quan hệ ở tầng ứng dụng bằng `relationship()`, `primaryjoin` và `foreign()` thay cho foreign key constraint.
-- Cấu hình SQLAlchemy engine ở chế độ AUTOCOMMIT để tránh thao tác SAVEPOINT không được Aurora DSQL hỗ trợ.
+## [2. Triển khai Blazor WebAssembly trên Amazon S3 và Amazon CloudFront](3.2-Blog2/)
 
-Bài viết cũng đề cập Aurora DSQL Python Connector, xác thực IAM, thao tác CRUD, eager loading, quản lý vòng đời connection và retry với exponential backoff cùng jitter khi xảy ra xung đột optimistic concurrency.
+Bài viết trình bày kiến trúc static hosting cho .NET Blazor WebAssembly với S3 private, CloudFront, Origin Access Control, cache policy, SPA routing và quy trình triển khai bằng Terraform kết hợp AWS CLI.
 
-[Đọc bài viết đã dịch →](3.1-Blog1/)
+[Đọc Blog 2 →](3.2-Blog2/)
