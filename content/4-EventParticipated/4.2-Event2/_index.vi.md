@@ -1,6 +1,6 @@
 ---
 title: "Event 2"
-date: 2024-01-01
+date: 2026-06-27
 weight: 1
 chapter: false
 pre: " <b> 4.2. </b> "
@@ -22,6 +22,16 @@ FCAJ Community Day - Data Driven, AI Risen được tổ chức vào Thứ Bảy
 | Thời gian | 9:00 AM - 12:00 PM |
 | Địa điểm | Bitexco Financial Tower, Thành phố Hồ Chí Minh |
 | Ticket | FC2 Conference Call (36F) |
+
+### Hình ảnh tham gia sự kiện
+
+![Không gian FCAJ Community Day ngày 27 tháng 6](/internship-report/images/4-EventParticipated/4.2-Event2/community-day-27-06.jpg)
+
+*Hình 4.3: Không gian phòng hội thảo FCAJ Community Day ngày 27/06/2026.*
+
+![Vé đã check-in FCAJ Community Day](/internship-report/images/4-EventParticipated/4.2-Event2/ticket-27-06.jpg)
+
+*Hình 4.4: Vé QR đã check-in cho sự kiện FCAJ Community Day ngày 27/06/2026.*
 
 ### Danh sách diễn giả
 
@@ -87,6 +97,14 @@ FCAJ Community Day - Data Driven, AI Risen được tổ chức vào Thứ Bảy
 - Thảo luận các thách thức bảo mật trong tích hợp dựa trên MCP.
 - Tìm hiểu cách cấu hình Amazon Quick VPC private connectivity.
 - Rút ra insight từ demo và các tình huống triển khai thực tế.
+
+### Bài học và kinh nghiệm về vai trò của AI
+
+Qua các phiên trình bày, mình nhận thấy vai trò của AI đang mở rộng từ chatbot sang operational agent, voice agent và trợ lý hỗ trợ quy trình doanh nghiệp. AI có thể giúp phát hiện vấn đề nhanh hơn, giảm công việc lặp lại, tổng hợp dữ liệu và đề xuất hành động, nhờ đó con người có thêm thời gian tập trung vào các quyết định cần kinh nghiệm và trách nhiệm chuyên môn.
+
+Tuy vậy, AI không tự tạo ra giá trị nếu thiếu dữ liệu phù hợp, ngữ cảnh vận hành và mục tiêu rõ ràng. Khi tích hợp AI với hệ thống doanh nghiệp thông qua MCP hoặc các công cụ khác, bảo mật, phân quyền tối thiểu, giám sát và khả năng can thiệp của con người phải được xem là yêu cầu thiết kế ngay từ đầu.
+
+Kinh nghiệm quan trọng mình rút ra là cần đánh giá AI dựa trên hiệu quả của toàn bộ workflow, không chỉ dựa trên khả năng của model. Một giải pháp AI tốt phải giải quyết đúng vấn đề, hoạt động ổn định, bảo vệ dữ liệu và cho phép con người kiểm soát những quyết định quan trọng.
 
 ### Bài học rút ra
 

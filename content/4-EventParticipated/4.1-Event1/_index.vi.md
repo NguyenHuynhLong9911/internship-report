@@ -1,6 +1,6 @@
 ---
 title: "Event 1"
-date: 2024-01-01
+date: 2026-05-23
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
@@ -11,6 +11,16 @@ pre: " <b> 4.1. </b> "
 ### Tổng quan sự kiện
 
 FCAJ Community Day - Conference Call là sự kiện cộng đồng AWS First Cloud Journey về AI, được tổ chức tại Bitexco Financial Tower, Thành phố Hồ Chí Minh. Sự kiện tập trung vào các chủ đề thực tế về AI, kiến trúc cloud, Amazon CloudFront, AI assistant, hành vi của LLM và hệ thống multi-agent.
+
+### Hình ảnh tham gia sự kiện
+
+![Ảnh tập thể tại FCAJ Community Day ngày 23 tháng 5](/internship-report/images/4-EventParticipated/4.1-Event1/community-day-23-05.jpg)
+
+*Hình 4.1: Ảnh tập thể của người tham dự FCAJ Community Day - Conference Call ngày 23/05/2026.*
+
+![Vé tham dự FCAJ Community Day - Conference Call](/internship-report/images/4-EventParticipated/4.1-Event1/ticket-23-05.jpg)
+
+*Hình 4.2: Vé QR xác nhận tham dự sự kiện ngày 23/05/2026.*
 
 ### Danh sách diễn giả
 
@@ -78,6 +88,14 @@ FCAJ Community Day - Conference Call là sự kiện cộng đồng AWS First Cl
 - So sánh trường hợp nên dùng single agent và multi-agent.
 - Xem blueprint của một virtual credit committee.
 - Nắm được các yếu tố về guardrails, compliance, operational ROI, roadmap triển khai và bước tiếp theo.
+
+### Bài học và kinh nghiệm về vai trò của AI
+
+Sau sự kiện, mình nhận thấy AI không chỉ là công cụ tạo nội dung hoặc trả lời câu hỏi. Khi được cung cấp đúng dữ liệu, ngữ cảnh và công cụ, AI có thể hỗ trợ phân tích thông tin, tự động hóa một phần quy trình và phối hợp nhiều tác vụ phức tạp. Tuy nhiên, chất lượng đầu ra phụ thuộc trực tiếp vào chất lượng ngữ cảnh, cách thiết kế hệ thống và tiêu chí đánh giá.
+
+AI nên đóng vai trò hỗ trợ con người ra quyết định thay vì thay thế hoàn toàn con người. Với những bài toán có ảnh hưởng đến tài chính, vận hành hoặc người dùng, kết quả do AI tạo ra cần được kiểm chứng và đặt trong các guardrail rõ ràng. Multi-agent system cũng chỉ mang lại giá trị khi mỗi agent có trách nhiệm cụ thể, quyền truy cập phù hợp và cơ chế giám sát xuyên suốt.
+
+Kinh nghiệm mình rút ra là cần bắt đầu từ vấn đề thực tế, xác định dữ liệu và kết quả mong muốn trước khi lựa chọn model hoặc công cụ AI. Đây cũng là định hướng hữu ích khi phát triển SmartStudy: AI cần dựa trên tài liệu của người học, có phạm vi rõ ràng và hỗ trợ quá trình học tập thay vì trả lời thiếu căn cứ.
 
 ### Bài học rút ra
 

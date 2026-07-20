@@ -6,8 +6,9 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-During my internship at **[Company/Organization Name]** from **[start date]** to **[end date]**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
-I participated in **[briefly describe the main project or task]**, through which I improved my skills in **[list skills: programming, analysis, reporting, communication, etc.]**.  
+During my internship at **Amazon Web Services Vietnam Company Limited** from **April 17, 2026** to **July 30, 2026**, I had the opportunity to learn, practice, and apply the knowledge acquired at university in a real-world working environment.
+
+I participated in the **First Cloud Journey** program and worked with my team to build **SmartStudy AI**, a platform that supports learning from PDF documents, AI-assisted question answering, and quiz generation. Through the design, development, deployment, and testing of the project, I strengthened my knowledge of AWS serverless architecture, AWS CDK, GitHub, asynchronous document processing, and Ollama integration. I also improved my analytical, problem-solving, teamwork, and technical documentation skills.
 
 In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.
 
