@@ -13,10 +13,10 @@ pre: " <b> 1.10. </b> "
 
 ### Các công việc đã thực hiện
 
-| STT | Công việc | Thời gian | Kết quả |
-| --- | --------- | --------- | ------- |
-| 1 | Kiểm tra cấu hình Cognito và luồng đăng nhập, nhận token của frontend | 15/06–18/06 | Xác định và điều chỉnh luồng xác thực gây lỗi `No Token` |
-| 2 | Kiểm tra phương thức thanh toán và thử đăng ký domain trên Route 53 | 19/06–21/06 | Không mua được domain và bắt đầu cân nhắc dùng domain mặc định của Amplify |
+| STT | Công việc | Ngày bắt đầu | Ngày hoàn thành | Kết quả |
+| --- | --------- | ------------ | --------------- | ------- |
+| 1 | Kiểm tra cấu hình Cognito và luồng đăng nhập, nhận token của frontend | 15/06/2026 | 18/06/2026 | Xác định và điều chỉnh luồng xác thực gây lỗi `No Token` |
+| 2 | Kiểm tra phương thức thanh toán và thử đăng ký domain trên Route 53 | 19/06/2026 | 21/06/2026 | Không mua được domain và bắt đầu cân nhắc dùng domain mặc định của Amplify |
 
 ### Kết quả đạt được tuần 10
 

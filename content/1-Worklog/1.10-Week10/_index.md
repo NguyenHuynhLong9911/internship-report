@@ -13,10 +13,10 @@ pre: " <b> 1.10. </b> "
 
 ### Tasks completed this week
 
-| No. | Task | Period | Result |
-| --- | ---- | ------ | ------ |
-| 1 | Review the Cognito configuration and the frontend sign-in and token flow | 15/06–18/06 | Identified and adjusted the authentication flow related to the `No Token` error |
-| 2 | Review the payment method and attempt domain registration through Route 53 | 19/06–21/06 | Could not purchase the domain and began considering the default Amplify domain |
+| No. | Task | Start Date | Completion Date | Result |
+| --- | ---- | ---------- | --------------- | ------ |
+| 1 | Review the Cognito configuration and the frontend sign-in and token flow | 15/06/2026 | 18/06/2026 | Identified and adjusted the authentication flow related to the `No Token` error |
+| 2 | Review the payment method and attempt domain registration through Route 53 | 19/06/2026 | 21/06/2026 | Could not purchase the domain and began considering the default Amplify domain |
 
 ### Week 10 Achievements
 

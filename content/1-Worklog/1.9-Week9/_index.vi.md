@@ -14,11 +14,11 @@ pre: " <b> 1.9. </b> "
 
 ### Các công việc đã thực hiện
 
-| STT | Công việc | Thời gian | Kết quả |
-| --- | --------- | --------- | ------- |
-| 1 | Thống nhất và phân chia công việc frontend, backend và AWS | 08/06–09/06 | Có kế hoạch làm việc cho từng thành viên |
-| 2 | Bắt đầu xây dựng giao diện frontend và các API backend | 10/06–12/06 | Hoàn thành cấu trúc ban đầu của ứng dụng |
-| 3 | Kết nối repository GitHub và thiết lập hosting trên AWS Amplify | 13/06–14/06 | Website bắt đầu được triển khai qua Amplify |
+| STT | Công việc | Ngày bắt đầu | Ngày hoàn thành | Kết quả |
+| --- | --------- | ------------ | --------------- | ------- |
+| 1 | Thống nhất và phân chia công việc frontend, backend và AWS | 08/06/2026 | 09/06/2026 | Có kế hoạch làm việc cho từng thành viên |
+| 2 | Bắt đầu xây dựng giao diện frontend và các API backend | 10/06/2026 | 12/06/2026 | Hoàn thành cấu trúc ban đầu của ứng dụng |
+| 3 | Kết nối repository GitHub và thiết lập hosting trên AWS Amplify | 13/06/2026 | 14/06/2026 | Website bắt đầu được triển khai qua Amplify |
 
 ### Kết quả đạt được tuần 9
 

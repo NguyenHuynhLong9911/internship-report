@@ -14,11 +14,11 @@ pre: " <b> 1.14. </b> "
 
 ### Các công việc đã thực hiện
 
-| STT | Công việc | Thời gian | Kết quả |
-| --- | --------- | --------- | ------- |
-| 1 | Sửa Architecture theo hệ thống thực tế | 13/07–14/07 | Sơ đồ phản ánh đúng phương án đang sử dụng |
-| 2 | Nâng cấp tính năng và kiểm tra website SmartStudy | 15/07–17/07 | Website hoàn thiện và ổn định hơn |
-| 3 | Hoàn thiện báo cáo trên GitHub Pages và video demo | 18/07–19/07 | Hoàn thành báo cáo và video demo dự án |
+| STT | Công việc | Ngày bắt đầu | Ngày hoàn thành | Kết quả |
+| --- | --------- | ------------ | --------------- | ------- |
+| 1 | Sửa Architecture theo hệ thống thực tế | 13/07/2026 | 14/07/2026 | Sơ đồ phản ánh đúng phương án đang sử dụng |
+| 2 | Nâng cấp tính năng và kiểm tra website SmartStudy | 15/07/2026 | 17/07/2026 | Website hoàn thiện và ổn định hơn |
+| 3 | Hoàn thiện báo cáo trên GitHub Pages và video demo | 18/07/2026 | 19/07/2026 | Hoàn thành báo cáo và video demo dự án |
 
 ### Kết quả đạt được tuần 14
 

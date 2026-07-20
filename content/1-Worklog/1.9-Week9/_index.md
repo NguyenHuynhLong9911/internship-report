@@ -14,11 +14,11 @@ pre: " <b> 1.9. </b> "
 
 ### Tasks completed this week
 
-| No. | Task | Period | Result |
-| --- | ---- | ------ | ------ |
-| 1 | Agree on and divide the frontend, backend, and AWS responsibilities | 08/06–09/06 | Created a working plan for each member |
-| 2 | Begin building the frontend interface and backend APIs | 10/06–12/06 | Completed the initial application structure |
-| 3 | Connect the GitHub repository and configure hosting on AWS Amplify | 13/06–14/06 | Began deploying the website through Amplify |
+| No. | Task | Start Date | Completion Date | Result |
+| --- | ---- | ---------- | --------------- | ------ |
+| 1 | Agree on and divide the frontend, backend, and AWS responsibilities | 08/06/2026 | 09/06/2026 | Created a working plan for each member |
+| 2 | Begin building the frontend interface and backend APIs | 10/06/2026 | 12/06/2026 | Completed the initial application structure |
+| 3 | Connect the GitHub repository and configure hosting on AWS Amplify | 13/06/2026 | 14/06/2026 | Began deploying the website through Amplify |
 
 ### Week 9 Achievements
 

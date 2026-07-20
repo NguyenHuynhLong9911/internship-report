@@ -14,11 +14,11 @@ pre: " <b> 1.11. </b> "
 
 ### Các công việc đã thực hiện
 
-| STT | Công việc | Thời gian | Kết quả |
-| --- | --------- | --------- | ------- |
-| 1 | Tạm loại Route 53 và Bedrock khỏi phương án triển khai | 22/06–23/06 | Chuyển sang domain Amplify và nghiên cứu AI thay thế |
-| 2 | Phân tích giải pháp Docker và Local AI | 24/06–25/06 | Chọn hướng chạy model AI local thay cho Bedrock |
-| 3 | Kiểm tra frontend, API và cấu hình lưu trữ trong luồng upload PDF | 26/06–28/06 | Khắc phục lỗi upload và tiếp tục được luồng xử lý tài liệu |
+| STT | Công việc | Ngày bắt đầu | Ngày hoàn thành | Kết quả |
+| --- | --------- | ------------ | --------------- | ------- |
+| 1 | Tạm loại Route 53 và Bedrock khỏi phương án triển khai | 22/06/2026 | 23/06/2026 | Chuyển sang domain Amplify và nghiên cứu AI thay thế |
+| 2 | Phân tích giải pháp Docker và Local AI | 24/06/2026 | 25/06/2026 | Chọn hướng chạy model AI local thay cho Bedrock |
+| 3 | Kiểm tra frontend, API và cấu hình lưu trữ trong luồng upload PDF | 26/06/2026 | 28/06/2026 | Khắc phục lỗi upload và tiếp tục được luồng xử lý tài liệu |
 
 ### Kết quả đạt được tuần 11
 
