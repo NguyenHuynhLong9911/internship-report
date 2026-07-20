@@ -1,6 +1,6 @@
 ---
 title: "Event 2"
-date: 2024-01-01
+date: 2026-06-27
 weight: 1
 chapter: false
 pre: " <b> 4.2. </b> "
@@ -22,6 +22,16 @@ FCAJ Community Day - Data Driven, AI Risen was held on Saturday, 27 June 2026, f
 | Time | 9:00 AM - 12:00 PM |
 | Venue | Bitexco Financial Tower, Ho Chi Minh City |
 | Ticket | FC2 Conference Call (36F) |
+
+### Event participation evidence
+
+![FCAJ Community Day venue on June 27](/internship-report/images/4-EventParticipated/4.2-Event2/community-day-27-06.jpg)
+
+*Figure 4.3: Conference room during FCAJ Community Day on June 27, 2026.*
+
+![Checked-in FCAJ Community Day ticket](/internship-report/images/4-EventParticipated/4.2-Event2/ticket-27-06.jpg)
+
+*Figure 4.4: Checked-in QR ticket for FCAJ Community Day on June 27, 2026.*
 
 ### Speakers
 
@@ -87,6 +97,14 @@ FCAJ Community Day - Data Driven, AI Risen was held on Saturday, 27 June 2026, f
 - Discussed security challenges in MCP-based integrations.
 - Reviewed Amazon Quick VPC private connectivity.
 - Shared demo and real-world implementation insights.
+
+### Lessons and experience regarding the role of AI
+
+The sessions showed me that the role of AI is expanding beyond chatbots into operational agents, voice agents, and assistants embedded in enterprise workflows. AI can detect issues faster, reduce repetitive work, summarize data, and recommend actions, allowing people to focus on decisions that require experience and professional accountability.
+
+AI does not create value on its own when suitable data, operational context, and clear objectives are missing. When AI is connected to enterprise systems through MCP or other tools, security, least-privilege access, monitoring, and human intervention must be treated as design requirements from the beginning.
+
+The most important experience I gained was to evaluate AI by the effectiveness of the complete workflow rather than only by model capability. A useful AI solution must solve the correct problem, operate reliably, protect data, and keep people in control of important decisions.
 
 ### Key Takeaways
 
