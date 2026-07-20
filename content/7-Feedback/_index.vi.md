@@ -29,12 +29,14 @@ Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về t
 
 
 ### Một số câu hỏi khác
-- Điều bạn **hài lòng nhất** trong thời gian thực tập?  
-- Điều bạn nghĩ công ty **cần cải thiện** cho các thực tập sinh sau?  
-- Nếu giới thiệu cho bạn bè, bạn có **khuyên họ thực tập ở đây không**? Vì sao?  
+
+**Điều mình hài lòng nhất trong thời gian thực tập** là thời gian làm việc linh hoạt và cơ hội được trải nghiệm môi trường văn phòng chuyên nghiệp. Điều này giúp mình chủ động sắp xếp thời gian học tập, làm việc và hoàn thành các nhiệm vụ của chương trình.
+
+**Điều chương trình có thể cải thiện** chủ yếu là tạo thêm điều kiện để nhiều thực tập sinh có thể lên văn phòng đầy đủ trong các buổi làm việc. Việc có nhiều thành viên tham gia trực tiếp hơn sẽ tăng cơ hội trao đổi, phối hợp và học hỏi lẫn nhau.
+
+**Mình sẽ giới thiệu chương trình cho bạn bè** nếu họ quan tâm đến AWS và điện toán đám mây. Không gian làm việc thoải mái, thời gian linh hoạt và các buổi Community Day tạo điều kiện để thực tập sinh trao đổi kiến thức, mở rộng góc nhìn và kết nối với cộng đồng.
 
 
 ### Đề xuất & mong muốn
-- Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?  
-- Bạn có muốn tiếp tục chương trình này trong tương lai?
-- Góp ý khác (tự do chia sẻ):
+
+Hiện tại, mình không có đề xuất bổ sung nào khác. Mình mong muốn được tiếp tục tham gia chương trình trong tương lai và không có góp ý khác.

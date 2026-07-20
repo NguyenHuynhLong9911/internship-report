@@ -31,13 +31,15 @@ The company provides an internship allowance and offers flexible working hours w
 ---
 
 ### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+
+**What I found most satisfying during the internship** was the flexible schedule and the opportunity to work in a professional office environment. This flexibility helped me organize my study and work time while completing the program's assignments.
+
+**The main area the program could improve** is enabling more interns to attend the office sessions consistently. Greater in-person participation would provide more opportunities for discussion, collaboration, and peer learning.
+
+**I would recommend the program to friends** who are interested in AWS and cloud computing. The comfortable working environment, flexible schedule, and Community Day sessions give interns opportunities to exchange knowledge, broaden their perspectives, and connect with the community.
 
 ---
 
 ### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+
+At present, I do not have any additional suggestions. I would like to continue participating in the program in the future, and I have no further comments.
