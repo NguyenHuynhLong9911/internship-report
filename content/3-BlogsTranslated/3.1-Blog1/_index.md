@@ -1,6 +1,6 @@
 ---
 title: "Building Python Applications with SQLAlchemy and Amazon Aurora DSQL"
-date: 2026-06-08
+date: 2026-06-20
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
@@ -8,11 +8,17 @@ pre: " <b> 3.1. </b> "
 
 # Building Python Applications with SQLAlchemy and Amazon Aurora DSQL
 
+**Publication date:** June 20, 2026
+
+![Blog 1 published on Facebook on June 20, 2026](/internship-report/images/3-BlogsTranslated/3.1-Blog1/facebook-post.png)
+
+*Figure 1: The SQLAlchemy and Amazon Aurora DSQL article published on Facebook.*
+
 When a Python application needs a scalable database, SQLAlchemy combined with Amazon Aurora DSQL is a compelling option. SQLAlchemy provides a familiar ORM for defining models, constructing queries, and manipulating data. Aurora DSQL is a distributed, serverless, PostgreSQL-compatible database that automatically scales with traffic and uses AWS IAM authentication instead of long-lived database passwords.
 
 ![AWS article about SQLAlchemy and Amazon Aurora DSQL](/internship-report/images/3-BlogsTranslated/3.1-Blog1/blog.jpg)
 
-*Figure 1: Technical article about integrating SQLAlchemy with Amazon Aurora DSQL.*
+*Figure 2: Technical article about integrating SQLAlchemy with Amazon Aurora DSQL.*
 
 ## Solution overview
 
