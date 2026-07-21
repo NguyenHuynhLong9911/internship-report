@@ -1,6 +1,6 @@
 ---
 title: "Xây dựng ứng dụng Python với SQLAlchemy và Amazon Aurora DSQL"
-date: 2026-06-08
+date: 2026-06-20
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
@@ -8,11 +8,17 @@ pre: " <b> 3.1. </b> "
 
 # Xây dựng ứng dụng Python với SQLAlchemy và Amazon Aurora DSQL
 
+**Ngày đăng:** 20/06/2026
+
+![Bài Blog 1 được đăng trên Facebook ngày 20/06/2026](/internship-report/images/3-BlogsTranslated/3.1-Blog1/facebook-post.png)
+
+*Hình 1: Bài viết về SQLAlchemy và Amazon Aurora DSQL được đăng trên Facebook.*
+
 Khi một ứng dụng Python cần cơ sở dữ liệu có khả năng mở rộng, SQLAlchemy kết hợp với Amazon Aurora DSQL là một lựa chọn đáng chú ý. SQLAlchemy cung cấp mô hình ORM quen thuộc để định nghĩa model, xây dựng truy vấn và thao tác dữ liệu. Aurora DSQL là cơ sở dữ liệu phân tán, serverless, tương thích PostgreSQL, tự động mở rộng theo lưu lượng và sử dụng AWS IAM để xác thực thay vì lưu mật khẩu dài hạn trong ứng dụng.
 
 ![Bài viết AWS về SQLAlchemy và Amazon Aurora DSQL](/internship-report/images/3-BlogsTranslated/3.1-Blog1/blog.jpg)
 
-*Hình 1: Bài viết kỹ thuật về cách tích hợp SQLAlchemy với Amazon Aurora DSQL.*
+*Hình 2: Bài viết kỹ thuật về cách tích hợp SQLAlchemy với Amazon Aurora DSQL.*
 
 ## Tổng quan giải pháp
 

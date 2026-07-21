@@ -21,3 +21,9 @@ The article explains the key patterns required when using SQLAlchemy with Aurora
 The article presents a static hosting architecture for .NET Blazor WebAssembly using a private S3 bucket, CloudFront, Origin Access Control, appropriate cache policies, SPA routing, and automated deployment with Terraform and the AWS CLI.
 
 [Read Blog 2 →](3.2-Blog2/)
+
+## [3. Building an AI Gateway to Amazon Bedrock with Amazon API Gateway](3.3-Blog3/)
+
+The article introduces an AI gateway layer for governing Amazon Bedrock access with API Gateway, a Lambda authorizer, and a Lambda integration. It also covers quotas, throttling, response streaming, and governance for multi-application or multi-tenant environments.
+
+[Read Blog 3 →](3.3-Blog3/)
